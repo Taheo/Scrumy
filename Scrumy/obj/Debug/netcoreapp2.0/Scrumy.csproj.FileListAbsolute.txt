@@ -9,3 +9,4 @@ E:\programowanie\Engi\Scrumy\Scrumy\obj\Debug\netcoreapp2.0\Scrumy.AssemblyInfoI
 E:\programowanie\Engi\Scrumy\Scrumy\obj\Debug\netcoreapp2.0\Scrumy.AssemblyInfo.cs
 E:\programowanie\Engi\Scrumy\Scrumy\obj\Debug\netcoreapp2.0\Scrumy.dll
 E:\programowanie\Engi\Scrumy\Scrumy\obj\Debug\netcoreapp2.0\Scrumy.pdb
+E:\programowanie\Engi\Scrumy\Scrumy\obj\Debug\netcoreapp2.0\Scrumy.csprojAssemblyReference.cache

@@ -11,9 +11,10 @@ using System;
 namespace Scrumy.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180802165243_SprintTaskAdded")]
+    partial class SprintTaskAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -177,20 +178,6 @@ namespace Scrumy.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("Scrumy.Models.Sprint", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("Deadline");
-
-                    b.Property<bool>("isDone");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Sprints");
                 });
 
             modelBuilder.Entity("Scrumy.Models.SprintTask", b =>
