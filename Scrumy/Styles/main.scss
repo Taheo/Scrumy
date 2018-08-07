@@ -1,5 +1,8 @@
-﻿$base: #CC0000;
+﻿@import 'Variables';
 
 body {
-    background-color: $base;
+    background-color: $baseBackground;
+}
+h1 {
+    font-family: $headerFont !important;
 }
