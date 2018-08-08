@@ -1,8 +1,42 @@
 ﻿@import 'Variables';
+@import 'Mixins.scss';
 
 body {
     background-color: $baseBackground;
+    font-size: $globalFontSize;
+    color: $fontColor !important;
+    box-sizing: border-box;
 }
-h1 {
+
+h1,h2,h3,h4,h5{
     font-family: $headerFont !important;
+    color: inherit;
+}
+
+h1 {
+    font-size: 4em;
+}
+h2{
+    font-size: 2.4em;
+}
+h3{
+    font-size: 1.5em;
+}
+
+p{
+    font-family: $paragraphFont !important;
+    font-size: 1.2em;
+}
+
+section{
+    height: 40em;
+}
+.btn-view {
+    background: $secondaryBackground;
+    font-size: 2em;
+    padding: $buttonPadding;
+    width: $buttonWidth;
+    border-radius: $radius;
+    color: white;    
+    @include basicButton;
 }
