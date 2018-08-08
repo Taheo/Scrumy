@@ -19,11 +19,11 @@
     </environment>
 </head>
 <body>
-    @await Html.PartialAsync("_navbar");
-    <div class="container body-content">
+    @await Html.PartialAsync("_navbar")
+    <div class="body-content">
         @RenderBody()     
     </div>
-    @await Html.PartialAsync("_footer");
+    @await Html.PartialAsync("_footer")
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

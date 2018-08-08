@@ -1,14 +1,13 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
 /* Carousel */
 .carousel-caption p {
@@ -25,6 +24,12 @@
 #qrCode {
     margin: 15px;
 }
+.jumbotron {
+    background: none;
+}
+/*.row {
+    margin: 0 !important;
+}*/
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {

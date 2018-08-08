@@ -5,11 +5,11 @@ var gulp = require("gulp"),
     sass = require("gulp-sass");
 
 // other content removed
-var styleSrc = 'Styles/main.scss',
+var mainSrc = ['Styles/main.scss','Styles/footer.scss', 'Styles/homepage.scss'],
     styleDest = 'wwwroot/css';
 
 gulp.task("sass", function () {
-    return gulp.src(styleSrc)
+    return gulp.src(mainSrc)
         .pipe(sass())
         .pipe(gulp.dest(styleDest));
 });
