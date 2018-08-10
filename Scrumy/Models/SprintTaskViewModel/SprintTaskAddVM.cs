@@ -4,18 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Scrumy.Models
+namespace Scrumy.Models.SprintTaskViewModel
 {
-    public class SprintTask
+    public class SprintTaskAddVM
     {
-        [Key]
-        public Guid Id { get; set; }
+        [Required]
         public string Title { get; set; }
         public string Desc { get; set; }
-
-        public SprintTask()
-        {
-            Id = Guid.NewGuid();
-        }
     }
 }
