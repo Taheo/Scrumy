@@ -61,7 +61,7 @@ namespace Scrumy.Controllers
         }
 
         // GET: SprintTask/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
             return View();
         }
@@ -69,11 +69,12 @@ namespace Scrumy.Controllers
         // POST: SprintTask/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(SprintTask model)
         {
             try
             {
-                // TODO: Add update logic here
+                _context.SprintTasks.Update(model);
+                _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
@@ -84,26 +85,30 @@ namespace Scrumy.Controllers
         }
 
         // GET: SprintTask/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            var st = _context.SprintTasks.Find(id);
+            _context.SprintTasks.Remove(st);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: SprintTask/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Delete(Guid id)
+        //{
+        //    try
+        //    {
+        //        var st = _context.SprintTasks.Find(id); ;
+        //        _context.SprintTasks.Remove(st);
+        //        _context.SaveChanges();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }
