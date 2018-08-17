@@ -5,7 +5,8 @@ var gulp = require("gulp"),
     sass = require("gulp-sass");
 
 // other content removed
-var mainSrc = ['Styles/main.scss', 'Styles/footer.scss', 'Styles/homepage.scss', 'Styles/register.scss', 'Styles/login.scss'],
+//mainSrc = ['Styles/main.scss', 'Styles/footer.scss', 'Styles/homepage.scss', 'Styles/register.scss', 'Styles/login.scss']
+var mainSrc = ['Styles/*.scss', '!Styles/Variables.scss', '!Styles/Mixins.scss'],
     styleDest = 'wwwroot/css';
 
 gulp.task("sass", function () {
