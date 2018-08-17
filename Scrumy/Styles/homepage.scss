@@ -1,8 +1,7 @@
 ﻿@import 'Variables.scss';
-
+@import 'Mixins.scss';
 
 .slider {
-    background: $grayBackground;
     color: #E2E6E9;
 
     h1 {
@@ -15,9 +14,15 @@
 }
 
 .attributes {
-    background: $blueBackground; //#d1edff; //#29A0D8
     color: white;
     text-align: center;
+
+    .attribute{
+        min-height:200px;
+        h3, p{
+            margin-bottom: 16px;
+        }
+    } 
 
     i {
         font-size: 4em;
@@ -25,7 +30,6 @@
 }
 
 .story-container {
-    background: $grayBackground;
     text-align: center;
 
     .btn-view {
@@ -38,41 +42,39 @@
 
     .story {
         font-size: 4em;
+        padding: 8px 0;
+        margin: 8px 0;
     }
 }
-section:nth-of-type(4) {
-    background: $blueBackground;
 
-    .timeline-container {
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-flex-wrap: nowrap;
-        -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-        -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-        justify-content: space-around;
-        -webkit-align-content: space-around;
-        -ms-flex-line-pack: distribute;
-        align-content: space-around;
-        -webkit-align-items: flex-start;
-        -ms-flex-align: start;
-        align-items: flex-start;
 
-        .timeline-element {
-            -webkit-order: 0;
-            -ms-flex-order: 0;
-            order: 0;
-            -webkit-flex: 0 1 auto;
-            -ms-flex: 0 1 auto;
-            flex: 0 1 auto;
-            -webkit-align-self: auto;
-            -ms-flex-item-align: auto;
-            align-self: auto;
-        }
+.timeline-container {
+    @include flex-setup;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+
+    .timeline-element {
+        -webkit-order: 0;
+        -ms-flex-order: 0;
+        order: 0;
+        -webkit-flex: 0 1 auto;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        -webkit-align-self: auto;
+        -ms-flex-item-align: auto;
+        align-self: auto;
     }
 }

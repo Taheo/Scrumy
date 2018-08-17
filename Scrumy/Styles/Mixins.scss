@@ -17,3 +17,9 @@
         color: white;
     }
 }
+
+@mixin flex-setup {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
