@@ -49,6 +49,7 @@ namespace Scrumy.Controllers
 
             ViewData["ReturnUrl"] = returnUrl;
             return View();
+            
         }
 
         [HttpPost]
@@ -65,7 +66,8 @@ namespace Scrumy.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return RedirectToLocal(returnUrl);
+                    //return RedirectToLocal(returnUrl);
+                    return RedirectToAction(nameof(Dashboard));
                 }
                 if (result.RequiresTwoFactor)
                 {
@@ -85,6 +87,13 @@ namespace Scrumy.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+        public async Task<IActionResult> Dashboard()
+        {
+            var user = await GetCurrentUserAsync();
+            return View(user);
         }
 
         [HttpGet]

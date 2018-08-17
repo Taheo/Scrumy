@@ -8,7 +8,9 @@
       "wwwroot/css/site.css",
       "wwwroot/css/main.css",
       "wwwroot/css/footer.css",
-      "wwwroot/css/homepage.css"
+      "wwwroot/css/homepage.css",
+      "wwwroot/css/register.css",
+      "wwwroot/css/login.css"
     ]
   },
   {
