@@ -10,7 +10,8 @@
       "wwwroot/css/footer.css",
       "wwwroot/css/homepage.css",
       "wwwroot/css/register.css",
-      "wwwroot/css/login.css"
+      "wwwroot/css/login.css",
+      "wwwroot/css/dashboard.css"
     ]
   },
   {

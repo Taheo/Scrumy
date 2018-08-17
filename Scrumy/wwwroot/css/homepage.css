@@ -54,4 +54,8 @@
     flex: 0 1 auto;
     -webkit-align-self: auto;
     -ms-flex-item-align: auto;
-    align-self: auto; }
+    align-self: auto;
+    text-align: center;
+    border: 1px solid black;
+    min-height: 200px;
+    width: 275px; }
