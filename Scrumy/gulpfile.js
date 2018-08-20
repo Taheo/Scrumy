@@ -4,8 +4,6 @@ var gulp = require("gulp"),
     less = require("gulp-less"),
     sass = require("gulp-sass");
 
-// other content removed
-//mainSrc = ['Styles/main.scss', 'Styles/footer.scss', 'Styles/homepage.scss', 'Styles/register.scss', 'Styles/login.scss']
 var mainSrc = ['Styles/*.scss', '!Styles/Variables.scss', '!Styles/Mixins.scss'],
     styleDest = 'wwwroot/css';
 
