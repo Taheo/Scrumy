@@ -1,12 +1,17 @@
+/*#E2E6E9*/
+/*#007BC2*/
+/*#29A0D8*/
+/*#E2E6E9*/
+/*#007BC2*/
+/*#29A0D8*/
 .slider {
-  color: #E2E6E9; }
+  color: #6c7579; }
   .slider h1 {
     margin-top: 0; }
   .slider .btn-view {
     margin: 0 auto; }
 
 .attributes {
-  color: white;
   text-align: center; }
   .attributes .attribute {
     min-height: 200px; }
@@ -22,6 +27,7 @@
   .story-container h3 {
     margin-top: 0; }
   .story-container .story {
+    color: #175D7D;
     font-size: 4em;
     padding: 8px 0;
     margin: 8px 0; }

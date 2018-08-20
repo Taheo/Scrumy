@@ -1,8 +1,11 @@
+/*#E2E6E9*/
+/*#007BC2*/
+/*#29A0D8*/
 footer {
-  background: #495259;
   text-align: center; }
-  footer .social {
-    text-align: center; }
-    footer .social i {
-      font-size: 3em;
-      color: #29A0D8; }
+  footer .social i {
+    font-size: 3em;
+    color: #175D7D; }
+  footer .info-bar ul {
+    list-style: none;
+    color: white; }

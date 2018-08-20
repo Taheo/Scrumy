@@ -2,9 +2,9 @@
 @import 'Mixins.scss';
 
 body {
-    background-color: $bodyBackground;
+    background-color: $bodyBackground !important;
     font-size: $globalFontSize;
-    color: white !important;
+    color: $lightFontColor !important;
     box-sizing: border-box;
 }
 
@@ -36,10 +36,6 @@ section{
 
 .blue-backg {
     background: $blueBackground;
-}
-
-.gray-backg {
-    background: $grayBackground;
 }
 
 .btn-view {
