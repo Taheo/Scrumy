@@ -1,19 +1,19 @@
 ﻿@import 'Variables.scss';
 
 @mixin basicButton($color) {
-    border: 1px solid darken($color, 20%);
+    border: 1px solid darken($color, 5%);
     display: block;
     text-align: center;
 
     &:hover {
         text-decoration: none;
-        background-color: lighten($color, 20%);
+        background-color: lighten($color, 10%);
         color: white;
     }
 
     &:focus {
         text-decoration: none;
-        background-color: darken($color, 20%);
+        background-color: darken($color, 10%);
         color: white;
     }
 }

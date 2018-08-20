@@ -3,13 +3,21 @@
 
 .slider {
     color: $darkFontColor;
+    position: relative;
 
-    h1 {
-        margin-top: 0;
-    }
+    .slider-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 
-    .btn-view {
-        margin: 0 auto;
+        h1 {
+            margin-top: 0;
+        }
+
+        .btn-view {
+            margin: 0 auto;
+        }
     }
 }
 
@@ -30,17 +38,17 @@
 
 .story-container {
     text-align: center;
+    color: $blueBackground;
 
     .btn-view {
         margin: 0 auto;
     }
 
-    h3 {
+    h2 {
         margin-top: 0;
     }
 
     .story {
-        color: $blueBackground;
         font-size: 4em;
         padding: 8px 0;
         margin: 8px 0;
