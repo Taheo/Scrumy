@@ -1,3 +1,8 @@
 footer {
   background: #495259;
   text-align: center; }
+  footer .social {
+    text-align: center; }
+    footer .social i {
+      font-size: 3em;
+      color: #29A0D8; }

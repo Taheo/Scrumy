@@ -3,4 +3,12 @@
 footer {
     background: $grayBackground;
     text-align: center;
+
+    .social {
+        text-align: center;
+        i {
+            font-size: 3em;
+            color: $blueBackground;
+        }
+    }
 }
