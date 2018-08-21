@@ -139,14 +139,16 @@ namespace Scrumy.Controllers
             return RedirectToAction(nameof(Dashboard));
         }
 
-        //public async Task<IActionResult> ClearRoles()
-        //{
-        //    var user = await GetCurrentUserAsync();
-        //    var roles = _roleManager.Roles.ToList<string>();
+        public async Task<IActionResult> ClearRoles()
+        {
+            var user = await GetCurrentUserAsync();
 
-        //    _userManager.RemoveFromRolesAsync(roles);
-        //    return RedirectToAction(nameof(Dashboard));
-        //}
+            var roles = await _userManager.GetRolesAsync(user);
+            await _userManager.RemoveFromRolesAsync(user, roles.ToArray());
+
+
+            return RedirectToAction(nameof(Dashboard));
+        }
 
         [HttpGet]
         [AllowAnonymous]
