@@ -22,12 +22,14 @@ namespace Scrumy.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
+            RoleManager<IdentityRole> roleManager,
             IEmailSender emailSender,
             ILogger<AccountController> logger)
         {
@@ -35,6 +37,7 @@ namespace Scrumy.Controllers
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
+            _roleManager = roleManager;
         }
 
         [TempData]
@@ -88,13 +91,62 @@ namespace Scrumy.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        private bool CheckIfUserHasRole(ApplicationUser user)
+        {
+            var roles = _userManager.GetRolesAsync(user);
 
+            if (roles == null)
+            {
+                return false;
+            }
+            else {
+                return true;
+            }
+           
+        }
         private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
         public async Task<IActionResult> Dashboard()
         {
             var user = await GetCurrentUserAsync();
+            
             return View(user);
         }
+
+        public async Task<IActionResult> Settings()
+        {
+            //var user = await GetCurrentUserAsync();
+            return View();
+        }
+
+        public async Task<IActionResult> ChooseScrumMaster()
+        {
+            var user = await GetCurrentUserAsync();
+            await _userManager.AddToRoleAsync(user, "Scrum Master");
+            return RedirectToAction(nameof(Dashboard));
+        }
+
+        public async Task<IActionResult> ChooseDev()
+        {
+            var user = await GetCurrentUserAsync();
+            await _userManager.AddToRoleAsync(user, "Developer");
+            return RedirectToAction(nameof(Dashboard));
+        }
+
+        public async Task<IActionResult> ChoosePO()
+        {
+            var user = await GetCurrentUserAsync();
+            await _userManager.AddToRoleAsync(user, "Product Owner");
+            return RedirectToAction(nameof(Dashboard));
+        }
+
+        //public async Task<IActionResult> ClearRoles()
+        //{
+        //    var user = await GetCurrentUserAsync();
+        //    var roles = _roleManager.Roles.ToList<string>();
+
+        //    _userManager.RemoveFromRolesAsync(roles);
+        //    return RedirectToAction(nameof(Dashboard));
+        //}
 
         [HttpGet]
         [AllowAnonymous]

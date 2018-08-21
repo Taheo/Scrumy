@@ -3,15 +3,55 @@
     ViewData["Title"] = "Dashboard";
 }
 @model ApplicationUser
+@inject UserManager<ApplicationUser> UserManager
 
-<section class="container-full blue-backg">
+<section class="container-full blue-backg settings">
     <div class="handull-nav">
 
     </div>
     <div class="container">
         <h2>Dashboard</h2>
         <div class="user-profile">
+            <p>
+                Hi, @UserManager.GetUserName(User)
+            </p>
 
+            @if (User.Identity.IsAuthenticated)
+            {
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <p>
+                        ADMIN
+                    </p>
+                }
+                else if (User.IsInRole("Scrum Master"))
+                {
+                    <p>
+                        SM
+                    </p>
+                }
+                else if (User.IsInRole("Developer"))
+                {
+                    <p>
+                        DEV
+                    </p>
+                }
+                else if (User.IsInRole("Product Owner"))
+                {
+                    <p>
+                        PO
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        Choose Role
+                    </p>
+                }
+            }
+
+            <a asp-area="" asp-controller="Account" asp-action="Settings" class="btn-view">Settings</a>
         </div>
         <div class="task-discuss">
 
