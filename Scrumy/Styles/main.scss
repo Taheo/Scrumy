@@ -4,7 +4,7 @@
 body {
     background-color: $bodyBackground !important;
     font-size: $globalFontSize;
-    color: $lightFontColor !important;
+    color: $darkFontColor !important;
     box-sizing: border-box;
 }
 
@@ -32,10 +32,6 @@ p{
 section{
     min-height: 30em;
     padding: 40px 0px;
-}
-
-.blue-backg {
-    background: $blueBackground;
 }
 
 .btn-view {

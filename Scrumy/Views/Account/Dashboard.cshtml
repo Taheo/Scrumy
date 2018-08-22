@@ -15,44 +15,48 @@
             <p>
                 Hi, @UserManager.GetUserName(User)
             </p>
+            <div class="action-bar">
+                @if (User.Identity.IsAuthenticated)
+                {
 
-            @if (User.Identity.IsAuthenticated)
-            {
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <p>
+                            ADMIN
+                        </p>
 
-                @if (User.IsInRole("Admin"))
-                {
-                    <p>
-                        ADMIN
-                    </p>
+                    }
+                    else if (User.IsInRole("Scrum Master"))
+                    {
+                        <p>
+                            SM
+                        </p>
+                    }
+                    else if (User.IsInRole("Developer"))
+                    {
+                        <p>
+                            DEV
+                        </p>
+                    }
+                    else if (User.IsInRole("Product Owner"))
+                    {
+                        <ul>
+                            <li><a asp-area="" asp-controller="SprintTask" asp-action="Create" class="btn-view">Add Task</a></li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <p>
+                            Choose Role
+                        </p>
+                        <a asp-area="" asp-controller="Account" asp-action="ChooseScrumMaster" class="btn-view">SM</a>
+                        <a asp-area="" asp-controller="Account" asp-action="ChooseDev" class="btn-view">Dev</a>
+                        <a asp-area="" asp-controller="Account" asp-action="ChoosePO" class="btn-view">Po</a>
+                    }
                 }
-                else if (User.IsInRole("Scrum Master"))
-                {
-                    <p>
-                        SM
-                    </p>
-                }
-                else if (User.IsInRole("Developer"))
-                {
-                    <p>
-                        DEV
-                    </p>
-                }
-                else if (User.IsInRole("Product Owner"))
-                {
-                    <p>
-                        PO
-                    </p>
-                }
-                else
-                {
-                    <p>
-                        Choose Role
-                    </p>
-                    <a asp-area="" asp-controller="Account" asp-action="ChooseScrumMaster" class="btn-view">SM</a>
-                    <a asp-area="" asp-controller="Account" asp-action="ChooseDev" class="btn-view">Dev</a>
-                    <a asp-area="" asp-controller="Account" asp-action="ChoosePO" class="btn-view">Po</a>
-                }
-            }
+
+            </div>
+            
 
             <a asp-area="" asp-controller="Account" asp-action="Settings" class="btn-view">Settings</a>
         </div>

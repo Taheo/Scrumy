@@ -7,7 +7,7 @@
 body {
   background-color: #FFFFFF !important;
   font-size: 12px;
-  color: #FFFFFF !important;
+  color: #6c7579 !important;
   box-sizing: border-box; }
 
 h1, h2, h3, h4, h5 {
@@ -31,9 +31,6 @@ p {
 section {
   min-height: 30em;
   padding: 40px 0px; }
-
-.blue-backg {
-  background: #175D7D; }
 
 .btn-view {
   background: #175D7D;
