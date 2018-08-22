@@ -1,0 +1,13 @@
+/*#E2E6E9*/
+/*#007BC2*/
+/*#29A0D8*/
+.agilewall h2 {
+  text-align: center; }
+
+.agilewall .toDo-element {
+  border: 1px solid #666666;
+  margin-bottom: 16px;
+  width: 75%; }
+
+.agilewall .todo-col {
+  border-right: 1px solid #666666; }

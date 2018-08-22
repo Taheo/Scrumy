@@ -4,44 +4,33 @@
     ViewData["Title"] = "AgileWall";
 }
 
-<h2>AgileWall</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Desc)
-                </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Desc)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<section class="agilewall container-full">
+    <h2>AgileWall</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 todo-col">
+                <h4>Backlog</h4>
+                @foreach (var item in Model)
+                {
+                    <div class="toDo-element">
+                        <p>
+                           Title: @Html.DisplayFor(modelItem => item.Title)
+                        </p>
+                        <p>
+                           Description: @Html.DisplayFor(modelItem => item.Desc)
+                        </p>
+                    </div>
+                }
+            </div>
+            <div class="col-md-4 todo-col">
+                <h4>ToDo in Current Sprint</h4>
+
+            </div>
+            <div class="col-md-4 todo-col">
+                <a @*asp-area="" asp-controller="Account" asp-action="Settings" *@ class="btn-view">Done</a>
+            </div>
+        </div>
+    </div>
+</section>

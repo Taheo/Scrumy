@@ -1,0 +1,16 @@
+﻿@import 'Variables.scss';
+
+.agilewall {
+    h2{
+        text-align: center;
+    }
+    .toDo-element {
+        border: 1px solid $borderGray;
+        margin-bottom: 16px;
+        width: 75%;
+    }
+
+    .todo-col{
+        border-right: 1px solid $borderGray;
+    }
+}
