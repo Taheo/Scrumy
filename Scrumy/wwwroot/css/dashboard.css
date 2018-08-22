@@ -1,0 +1,15 @@
+/*#E2E6E9*/
+/*#007BC2*/
+/*#29A0D8*/
+/*#E2E6E9*/
+/*#007BC2*/
+/*#29A0D8*/
+.action-bar {
+  position: relative; }
+  .action-bar .actions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }

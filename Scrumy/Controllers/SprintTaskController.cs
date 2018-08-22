@@ -25,6 +25,12 @@ namespace Scrumy.Controllers
             return View(st);
         }
 
+        public ActionResult AgileWall()
+        {
+            var st = _context.SprintTasks.ToList();
+            return View(st);
+        }
+
         // GET: SprintTask/Details/5
         public ActionResult Details(int id)
         {

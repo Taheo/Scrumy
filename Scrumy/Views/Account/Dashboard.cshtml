@@ -11,57 +11,71 @@
     </div>
     <div class="container">
         <h2>Dashboard</h2>
-        <div class="user-profile">
-            <p>
-                Hi, @UserManager.GetUserName(User)
-            </p>
-            <div class="action-bar">
-                @if (User.Identity.IsAuthenticated)
-                {
-
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <p>
-                            ADMIN
-                        </p>
-
-                    }
-                    else if (User.IsInRole("Scrum Master"))
-                    {
-                        <p>
-                            SM
-                        </p>
-                    }
-                    else if (User.IsInRole("Developer"))
-                    {
-                        <p>
-                            DEV
-                        </p>
-                    }
-                    else if (User.IsInRole("Product Owner"))
-                    {
-                        <ul>
-                            <li><a asp-area="" asp-controller="SprintTask" asp-action="Create" class="btn-view">Add Task</a></li>
-                        </ul>
-                    }
-                    else
-                    {
-                        <p>
-                            Choose Role
-                        </p>
-                        <a asp-area="" asp-controller="Account" asp-action="ChooseScrumMaster" class="btn-view">SM</a>
-                        <a asp-area="" asp-controller="Account" asp-action="ChooseDev" class="btn-view">Dev</a>
-                        <a asp-area="" asp-controller="Account" asp-action="ChoosePO" class="btn-view">Po</a>
-                    }
-                }
-
-            </div>
+        @*<div class="user-profile">
+            
+           
             
 
-            <a asp-area="" asp-controller="Account" asp-action="Settings" class="btn-view">Settings</a>
-        </div>
+           
+        </div>*@
         <div class="task-discuss">
 
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p>
+                    Hi, @UserManager.GetUserName(User)
+                </p>
+            </div>
+            <div class="col-md-6">
+                <a asp-area="" asp-controller="Account" asp-action="Settings" class="btn-view">Settings</a>
+            </div>
+            <div class="col-md-12">
+                <section class="action-bar">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <p>
+                                ADMIN
+                            </p>
+
+                        }
+                        else if (User.IsInRole("Scrum Master"))
+                        {
+                            <p>
+                                SM
+                            </p>
+                        }
+                        else if (User.IsInRole("Developer"))
+                        {
+                            <p>
+                                DEV
+                            </p>
+                        }
+                        else if (User.IsInRole("Product Owner"))
+                        {
+                            <div class="actions">
+                                
+                                    <a asp-area="" asp-controller="SprintTask" asp-action="Create" class="btn-view">Add Task</a>
+                                    <a asp-area="" asp-controller="SprintTask" asp-action="AgileWall" class="btn-view">Agile Wall</a>
+                                
+                            </div>
+                        }
+                        else
+                        {
+                            <h4>
+                                Choose project role for you.
+                            </h4>
+                            <a asp-area="" asp-controller="Account" asp-action="ChooseScrumMaster" class="btn-view">SM</a>
+                            <a asp-area="" asp-controller="Account" asp-action="ChooseDev" class="btn-view">Dev</a>
+                            <a asp-area="" asp-controller="Account" asp-action="ChoosePO" class="btn-view">Po</a>
+                        }
+                    }
+
+                </section>
+            </div>
         </div>
     </div>
 </section>

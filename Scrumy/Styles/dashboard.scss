@@ -1,1 +1,9 @@
-﻿
+﻿@import 'Variables.scss';
+@import 'Mixins.scss';
+
+.action-bar{
+    position: relative;
+    .actions{
+        @include center(both)
+    }
+}

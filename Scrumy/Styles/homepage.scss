@@ -24,12 +24,15 @@
 .attributes {
     text-align: center;
 
-    .attribute{
-        min-height:200px;
-        h3, p{
+
+    .attribute {
+        min-height: 200px;
+        color: $blueBackground;
+
+        h3, p {
             margin-bottom: 16px;
         }
-    } 
+    }
 
     i {
         font-size: 4em;
@@ -38,7 +41,7 @@
 
 .story-container {
     text-align: center;
-    color: $blueBackground;
+
 
     .btn-view {
         margin: 0 auto;
@@ -52,6 +55,7 @@
         font-size: 4em;
         padding: 8px 0;
         margin: 8px 0;
+        color: $blueBackground;
     }
 }
 
