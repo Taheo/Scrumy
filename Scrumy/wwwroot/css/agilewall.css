@@ -1,13 +1,23 @@
 /*#E2E6E9*/
 /*#007BC2*/
 /*#29A0D8*/
+/*#E2E6E9*/
+/*#007BC2*/
+/*#29A0D8*/
 .agilewall h2 {
   text-align: center; }
 
 .agilewall .toDo-element {
+  text-align: center;
   border: 1px solid #666666;
   margin-bottom: 16px;
-  width: 75%; }
+  width: 75%;
+  padding: 12px;
+  border-radius: 12px; }
 
 .agilewall .todo-col {
   border-right: 1px solid #666666; }
+
+.agilewall .todo-col:last-of-type .btn-view {
+  margin-left: auto;
+  margin-right: auto; }

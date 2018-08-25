@@ -1,16 +1,27 @@
 ﻿@import 'Variables.scss';
+@import 'Mixins.scss';
 
 .agilewall {
-    h2{
+    h2 {
         text-align: center;
     }
+
     .toDo-element {
+        text-align: center;
         border: 1px solid $borderGray;
         margin-bottom: 16px;
         width: 75%;
+        padding: $boxPadding;
+        border-radius: $radius;
     }
 
-    .todo-col{
+    .todo-col {
         border-right: 1px solid $borderGray;
+    }
+
+    .todo-col:last-of-type {
+       .btn-view{
+           @include margin-auto;
+       }
     }
 }
