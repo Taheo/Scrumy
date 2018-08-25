@@ -8,3 +8,5 @@
   min-height: initial;
   height: 100vh;
   color: #6c7579; }
+  .login .checkbox label {
+    font-size: 1.5em; }

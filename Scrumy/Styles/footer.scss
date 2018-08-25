@@ -1,17 +1,17 @@
 ﻿@import 'Variables.scss';
 
 footer {
-   
     text-align: center;
+    background: $navFootColor;
 
     .social {
-        
+
         i {
             font-size: 3em;
             color: $blueBackground;
         }
-        
     }
+
     .info-bar {
         ul {
             list-style: none;

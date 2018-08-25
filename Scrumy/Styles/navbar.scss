@@ -1,0 +1,7 @@
+﻿@import 'Variables.scss';
+@import 'Mixins.scss';
+
+.navbar-inverse{
+    background: $navFootColor;
+    border-bottom: 1px solid $borderGray;
+}

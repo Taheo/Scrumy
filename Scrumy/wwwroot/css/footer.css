@@ -2,7 +2,8 @@
 /*#007BC2*/
 /*#29A0D8*/
 footer {
-  text-align: center; }
+  text-align: center;
+  background: #cccdce; }
   footer .social i {
     font-size: 3em;
     color: #175D7D; }
