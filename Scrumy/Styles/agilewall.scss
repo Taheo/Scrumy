@@ -22,6 +22,7 @@
         width: 75%;
         padding: $boxPadding;
         border-radius: $radius;
+        @include margin-auto;
     }
 
     .toDo-element {
