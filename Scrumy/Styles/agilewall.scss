@@ -7,12 +7,9 @@
     }
 
     .wall-col {
-        border-right: 1px solid $borderGray;
-    }
-
-    .wall-col:last-of-type {
-        .btn-view {
-            @include margin-auto;
+        border-top: 1px solid $borderGray;
+        h4 {
+            text-align: center;
         }
     }
 
@@ -23,6 +20,10 @@
         padding: $boxPadding;
         border-radius: $radius;
         @include margin-auto;
+
+        button {
+            @include margin-auto;
+        }
     }
 
     .toDo-element {

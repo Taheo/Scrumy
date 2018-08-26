@@ -56,5 +56,24 @@ section {
     background-color: #0f3d52;
     color: white; }
 
+.btn-action {
+  background: #175D7D;
+  font-size: 1.4em;
+  padding: 8px;
+  width: 100px;
+  border-radius: 8px;
+  color: white;
+  border: 1px solid #134d67;
+  display: block;
+  text-align: center; }
+  .btn-action:hover {
+    text-decoration: none;
+    background-color: #1f7da8;
+    color: white; }
+  .btn-action:focus {
+    text-decoration: none;
+    background-color: #0f3d52;
+    color: white; }
+
 .container-full {
   width: 100%; }

@@ -14,14 +14,50 @@
                 <h4>Backlog</h4>
                 @foreach (var item in Model)
                 {
-                    <div class="toDo-element element">
-                        <p>
-                           Title: @Html.DisplayFor(modelItem => item.Title)
-                        </p>
-                        <p>
-                           Description: @Html.DisplayFor(modelItem => item.Desc)
-                        </p>
+                <div class="toDo-element element">
+                    <p>
+                        Title: @Html.DisplayFor(modelItem => item.Title)
+                    </p>
+
+                    <button type="button" class="btn-action" data-toggle="modal" data-target="#@item.Id">Details</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="@item.Id" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Task Details</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        Title: @Html.DisplayFor(modelItem => item.Title)
+                                    </p>
+                                    @if (item.Desc != null)
+                                    {
+                                        <p>
+                                            Description: @Html.DisplayFor(modelItem => item.Desc)
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p>
+                                            This task has no description.
+                                        </p>
+                                    }
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
+                </div>
                 }
             </div>
             <div class="col-md-4 wall-col">
@@ -40,7 +76,7 @@
                         Title: @Html.DisplayFor(modelItem => item.Title)
                     </p>
 
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#@item.Id">Details</button>
+                    <button type="button" class="btn-action" data-toggle="modal" data-target="#@item.Id">Details</button>
                   
                     <!-- Modal -->
                     <div class="modal fade" id="@item.Id" role="dialog">
@@ -50,14 +86,16 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Modal Header</h4>
+                                    <h4 class="modal-title">Task Details</h4>
                                 </div>
                                 <div class="modal-body">
-
+                                    <p>
+                                        Title: @Html.DisplayFor(modelItem => item.Title)
+                                    </p>
                                     @if (item.Desc != null)
                                     {
                                         <p>
-                                            @Html.DisplayFor(modelItem => item.Desc)
+                                            Description: @Html.DisplayFor(modelItem => item.Desc)
                                         </p>
                                     }
                                     else

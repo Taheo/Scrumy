@@ -50,6 +50,16 @@ section{
     @include basicButton($blueBackground);
 }
 
+.btn-action {
+    background: $blueBackground;
+    font-size: 1.4em;
+    padding: $buttonPadding;
+    width: $smallButtonWidth;
+    border-radius: $smallRadius;
+    color: white;
+    @include basicButton($blueBackground);
+}
+
 .container-full {
     width: 100%;
 }
