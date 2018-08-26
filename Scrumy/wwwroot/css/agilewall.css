@@ -7,17 +7,23 @@
 .agilewall h2 {
   text-align: center; }
 
-.agilewall .toDo-element {
+.agilewall .wall-col {
+  border-right: 1px solid #666666; }
+
+.agilewall .wall-col:last-of-type .btn-view {
+  margin-left: auto;
+  margin-right: auto; }
+
+.agilewall .element {
   text-align: center;
-  border: 1px solid #666666;
   margin-bottom: 16px;
   width: 75%;
   padding: 12px;
   border-radius: 12px; }
 
-.agilewall .todo-col {
-  border-right: 1px solid #666666; }
+.agilewall .toDo-element {
+  border: 1px solid #666666; }
 
-.agilewall .todo-col:last-of-type .btn-view {
-  margin-left: auto;
-  margin-right: auto; }
+.agilewall .done-element {
+  border: 1px solid #4df24b;
+  background: #97ff96; }

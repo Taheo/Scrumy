@@ -8,10 +8,12 @@
       "wwwroot/css/site.css",
       "wwwroot/css/main.css",
       "wwwroot/css/footer.css",
+      "wwwroot/css/navbar.css",
       "wwwroot/css/homepage.css",
       "wwwroot/css/register.css",
       "wwwroot/css/login.css",
-      "wwwroot/css/dashboard.css"
+      "wwwroot/css/dashboard.css",
+      "wwwroot/css/agilewall.css"
     ]
   },
   {

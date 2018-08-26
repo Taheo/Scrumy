@@ -6,22 +6,30 @@
         text-align: center;
     }
 
-    .toDo-element {
+    .wall-col {
+        border-right: 1px solid $borderGray;
+    }
+
+    .wall-col:last-of-type {
+        .btn-view {
+            @include margin-auto;
+        }
+    }
+
+    .element {
         text-align: center;
-        border: 1px solid $borderGray;
         margin-bottom: 16px;
         width: 75%;
         padding: $boxPadding;
         border-radius: $radius;
     }
 
-    .todo-col {
-        border-right: 1px solid $borderGray;
+    .toDo-element {
+        border: 1px solid $borderGray;
     }
 
-    .todo-col:last-of-type {
-       .btn-view{
-           @include margin-auto;
-       }
+    .done-element {
+        border: 1px solid $doneGreenBorder;
+        background: $doneGreenBody;
     }
 }
