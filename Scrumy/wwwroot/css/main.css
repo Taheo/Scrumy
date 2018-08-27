@@ -77,3 +77,16 @@ section {
 
 .container-full {
   width: 100%; }
+
+.action-container ul.action-panel {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
+  .action-container ul.action-panel li {
+    float: left; }
+    .action-container ul.action-panel li a {
+      display: inline-block;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none; }

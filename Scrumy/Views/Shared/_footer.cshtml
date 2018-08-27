@@ -1,21 +1,21 @@
-﻿
-@*
+﻿@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
+
+
+
+
 <footer class="container-full">
     <div class="container">
         <div class="row">
+            
             <div class="col-md-6 col-xs-12 social">
                 <i class="fab fa-facebook-square"></i>
                 <i class="fab fa-youtube-square"></i>
                 <i class="fab fa-twitter-square"></i>
             </div>
             <div class="col-md-6 col-xs-12 info-bar">
-                <ul>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Blog">Blog</a></li>
-                </ul>
+                @await Html.PartialAsync("_actionBar")
             </div>
         </div>
     </div>
