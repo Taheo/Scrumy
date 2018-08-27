@@ -38,6 +38,13 @@ namespace Scrumy
             
 
             services.AddMvc();
+
+
+            // requires
+            // using Microsoft.AspNetCore.Identity.UI.Services;
+            // using WebPWrecover.Services;
+            services.AddSingleton<IEmailSender, EmailSender>();
+            services.Configure<AuthMessageSenderOptions>(Configuration);
         }
         private async Task CreateUserRoles(IServiceProvider serviceProvider)
         {
