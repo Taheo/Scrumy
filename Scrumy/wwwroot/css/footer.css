@@ -3,10 +3,15 @@
 /*#29A0D8*/
 footer {
   text-align: center;
-  background: #cccdce; }
+  background: #cccdce;
+  padding: 12px 0; }
   footer .social i {
-    font-size: 3em;
-    color: #175D7D; }
+    font-size: 3.5em;
+    color: #175D7D;
+    margin: 0 8px; }
+    footer .social i:hover {
+      cursor: pointer;
+      color: #1f7da8; }
   footer .info-bar ul {
     list-style: none;
     color: white; }

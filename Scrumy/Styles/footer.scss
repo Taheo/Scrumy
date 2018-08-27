@@ -3,12 +3,19 @@
 footer {
     text-align: center;
     background: $navFootColor;
+    padding: $boxPadding 0;
 
     .social {
 
         i {
-            font-size: 3em;
+            font-size: 3.5em;
             color: $blueBackground;
+            margin: 0 8px;
+
+            &:hover {
+                cursor: pointer;
+                color: lighten($blueBackground, 10%);
+            }
         }
     }
 
