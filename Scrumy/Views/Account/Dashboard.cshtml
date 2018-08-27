@@ -5,22 +5,14 @@
 @model ApplicationUser
 @inject UserManager<ApplicationUser> UserManager
 
-<section class="container-full blue-backg settings">
+<section class="container-full blue-backg">
     <div class="handull-nav">
 
     </div>
     <div class="container">
         <h2>Dashboard</h2>
-        @*<div class="user-profile">
-            
-           
-            
 
-           
-        </div>*@
-        <div class="task-discuss">
-
-        </div>
+       
         <div class="row">
             <div class="col-md-6">
                 <p>
@@ -28,7 +20,7 @@
                 </p>
             </div>
             <div class="col-md-6">
-                <a asp-area="" asp-controller="Account" asp-action="Settings" class="btn-view">Settings</a>
+                <a asp-area="" asp-controller="Manage" asp-action="Index" class="btn-view">Settings</a>
             </div>
             <div class="col-md-12">
                 <section class="action-bar">
@@ -57,10 +49,10 @@
                         else if (User.IsInRole("Product Owner"))
                         {
                             <div class="actions">
-                                
-                                    <a asp-area="" asp-controller="SprintTask" asp-action="Create" class="btn-view">Add Task</a>
-                                    <a asp-area="" asp-controller="SprintTask" asp-action="AgileWall" class="btn-view">Agile Wall</a>
-                                
+
+                                <a asp-area="" asp-controller="SprintTask" asp-action="Create" class="btn-view">Add Task</a>
+                                <a asp-area="" asp-controller="SprintTask" asp-action="AgileWall" class="btn-view">Agile Wall</a>
+
                             </div>
                         }
                         else
