@@ -4,7 +4,6 @@
     <ul class="action-panel">
         <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
         <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-        <li><a asp-area="" asp-controller="Home" asp-action="Blog">Blog</a></li>
         @if (SignInManager.IsSignedIn(User))
         {
             <li><a asp-area="" asp-controller="Account" asp-action="Dashboard">Dashboard</a></li>

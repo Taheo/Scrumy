@@ -14,5 +14,27 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
 
-.dashboard-box {
-  background: #cccdce; }
+.dashboard .dashboard-box {
+  background: #cccdce;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  min-height: 150px;
+  position: relative;
+  /*
+
+        .action-desc {
+            position: absolute;
+            top: 50%;
+            left:50%;
+        }*/ }
+  .dashboard .dashboard-box .action-btn-box {
+    width: 50%;
+    height: auto; }
+    .dashboard .dashboard-box .action-btn-box .btn-view {
+      position: absolute;
+      top: 50%;
+      margin-top: -24px; }
+  .dashboard .dashboard-box .action-desc {
+    width: 50%;
+    float: right; }
