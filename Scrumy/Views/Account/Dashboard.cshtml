@@ -5,71 +5,99 @@
 @model ApplicationUser
 @inject UserManager<ApplicationUser> UserManager
 
-<section class="container-full blue-backg">
-    <div class="handull-nav">
+<section class="container-full dashboard">
+    <div class="container dashboard-nav">
+        <p>
+            Welcome in your dashboard. You can go to other places from here.
+        </p>
+        @if (User.Identity.IsAuthenticated)
+        {
 
+            @if (User.IsInRole("Admin"))
+            {
+                <p>
+                    ADMIN
+                </p>
+
+            }
+            else if (User.IsInRole("Scrum Master"))
+            {
+                <p>
+                    SM
+                </p>
+            }
+            else if (User.IsInRole("Developer"))
+            {
+                <p>
+                    DEV
+                </p>
+            }
+            else if (User.IsInRole("Product Owner"))
+            {
+                <div class="actions">
+
+                    <a asp-area="" asp-controller="SprintTask" asp-action="Create" class="btn-view">Add Task</a>
+                    
+
+                </div>
+            }
+            else
+            {
+                <h4>
+                    Choose project role for you.
+                </h4>
+                <a asp-area="" asp-controller="Account" asp-action="ChooseScrumMaster" class="btn-view">SM</a>
+                <a asp-area="" asp-controller="Account" asp-action="ChooseDev" class="btn-view">Dev</a>
+                <a asp-area="" asp-controller="Account" asp-action="ChoosePO" class="btn-view">Po</a>
+            }
+        }
     </div>
     <div class="container">
-        <h2>Dashboard</h2>
-
-       
         <div class="row">
             <div class="col-md-6">
-                <p>
-                    Welcome in your dashboard. You can go to other places from here.
-                </p>
+                <div class="dashboard-box">
+                    <a asp-area="" asp-controller="SprintTask" asp-action="AgileWall" class="btn-view">Agile Wall</a>
+                </div>
             </div>
-            <div class="col-md-4 col-md-offset-2">
-                <div class="settings-box">
-                    <a asp-area="" asp-controller="Manage" asp-action="Index" class="btn-view">Settings</a>
+            <div class="col-md-6">
+                <div class="dashboard-box">
+                    <p class="btn-view">
+                        stats
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="dashboard-box">
+                    <p class="btn-view">
+                        sprint archive
+                    </p>
                     
                 </div>
             </div>
-            <div class="col-md-12">
-                <section class="action-bar">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <p>
-                                ADMIN
-                            </p>
-
-                        }
-                        else if (User.IsInRole("Scrum Master"))
-                        {
-                            <p>
-                                SM
-                            </p>
-                        }
-                        else if (User.IsInRole("Developer"))
-                        {
-                            <p>
-                                DEV
-                            </p>
-                        }
-                        else if (User.IsInRole("Product Owner"))
-                        {
-                            <div class="actions">
-
-                                <a asp-area="" asp-controller="SprintTask" asp-action="Create" class="btn-view">Add Task</a>
-                                <a asp-area="" asp-controller="SprintTask" asp-action="AgileWall" class="btn-view">Agile Wall</a>
-
-                            </div>
-                        }
-                        else
-                        {
-                            <h4>
-                                Choose project role for you.
-                            </h4>
-                            <a asp-area="" asp-controller="Account" asp-action="ChooseScrumMaster" class="btn-view">SM</a>
-                            <a asp-area="" asp-controller="Account" asp-action="ChooseDev" class="btn-view">Dev</a>
-                            <a asp-area="" asp-controller="Account" asp-action="ChoosePO" class="btn-view">Po</a>
-                        }
-                    }
-
-                </section>
+            <div class="col-md-6">
+                <div class="dashboard-box">
+                    
+                    <p class="btn-view">
+                        retro
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="dashboard-box">
+                    <a asp-area="" asp-controller="Manage" asp-action="Index" class="btn-view">Settings</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="dashboard-box">
+                    
+                    <p class="btn-view">
+                        scrum doc
+                    </p>
+                </div>
             </div>
         </div>
     </div>
