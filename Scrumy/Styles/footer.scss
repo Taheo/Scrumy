@@ -4,12 +4,12 @@ footer {
     text-align: center;
     background: $navFootColor;
     padding: $boxPadding 0;
+    color: $blueBackground;
 
     .social {
 
         i {
             font-size: 3.5em;
-            color: $blueBackground;
             margin: 0 8px;
 
             &:hover {
@@ -24,5 +24,9 @@ footer {
             list-style: none;
             color: white;
         }
+    }
+
+    .copy {
+        font-size: 1.7em;
     }
 }

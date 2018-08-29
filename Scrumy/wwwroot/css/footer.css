@@ -4,10 +4,10 @@
 footer {
   text-align: center;
   background: #cccdce;
-  padding: 12px 0; }
+  padding: 12px 0;
+  color: #175D7D; }
   footer .social i {
     font-size: 3.5em;
-    color: #175D7D;
     margin: 0 8px; }
     footer .social i:hover {
       cursor: pointer;
@@ -15,3 +15,5 @@ footer {
   footer .info-bar ul {
     list-style: none;
     color: white; }
+  footer .copy {
+    font-size: 1.7em; }
