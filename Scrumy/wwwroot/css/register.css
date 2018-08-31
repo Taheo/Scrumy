@@ -6,5 +6,12 @@
 /*#29A0D8*/
 .register {
   min-height: initial;
-  height: 100vh;
   color: #6c7579; }
+
+@media (max-width: 480px) {
+  .register {
+    height: 100%;
+    text-align: center; }
+    .register .btn-view {
+      margin-left: auto;
+      margin-right: auto; } }

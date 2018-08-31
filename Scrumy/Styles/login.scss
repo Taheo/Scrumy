@@ -11,3 +11,13 @@
         }
     }
 }
+
+@media(max-width: 480px){
+    .login{
+        height: 100%;
+        text-align: center;
+        .btn-view{
+            @include margin-auto;
+        }
+    }
+}

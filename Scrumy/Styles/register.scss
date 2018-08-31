@@ -3,6 +3,16 @@
 
 .register{
     min-height: initial;
-    height: 100vh;
     color: $darkFontColor;
+}
+
+@media(max-width: 480px) {
+    .register {
+        height: 100%;
+        text-align: center;
+
+        .btn-view {
+            @include margin-auto;
+        }
+    }
 }

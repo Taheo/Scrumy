@@ -10,3 +10,11 @@
   color: #6c7579; }
   .login .checkbox label {
     font-size: 1.5em; }
+
+@media (max-width: 480px) {
+  .login {
+    height: 100%;
+    text-align: center; }
+    .login .btn-view {
+      margin-left: auto;
+      margin-right: auto; } }
