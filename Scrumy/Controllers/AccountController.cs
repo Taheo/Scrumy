@@ -118,6 +118,11 @@ namespace Scrumy.Controllers
             return View();
         }
 
+        public async Task<IActionResult> ScrumDoc()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> ChooseScrumMaster()
         {
             var user = await GetCurrentUserAsync();

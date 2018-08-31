@@ -13,7 +13,8 @@
       "wwwroot/css/register.css",
       "wwwroot/css/login.css",
       "wwwroot/css/dashboard.css",
-      "wwwroot/css/agilewall.css"
+      "wwwroot/css/agilewall.css",
+      "wwwroot/css/scrumdoc.css"
     ]
   },
   {
