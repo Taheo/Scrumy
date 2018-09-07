@@ -2,9 +2,25 @@
 @import 'Mixins.scss';
 
 .scrumdoc {
-    .slide-text{
+    .slide-text {
         position: absolute;
         @include center(both);
+    }
+
+    .intro {
+        text-align: center;
+    }
+
+    .tut-container {
+        padding: 50px 0;
+        .tut-header {
+            text-align: center;
+
+            a:hover, a:focus {
+                text-decoration: none !important;
+                outline: none;
+            }
+        }
     }
 }
 
@@ -64,7 +80,8 @@
     font-size: 12px;
     padding: 8px 12px;
     position: absolute;
-    top: 0;
+    top: 15%;
+    @include center(horizontal);
 }
 
 /* The dots/bullets/indicators */
@@ -73,12 +90,12 @@
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #bbb;
+    background-color: $blueBackground;
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
 }
 
 .active, .dot:hover {
-    background-color: #717171;
+    background-color: darken($blueBackground, 10%);
 }

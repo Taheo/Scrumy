@@ -13,6 +13,17 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
 
+.scrumdoc .intro {
+  text-align: center; }
+
+.scrumdoc .tut-container {
+  padding: 50px 0; }
+  .scrumdoc .tut-container .tut-header {
+    text-align: center; }
+    .scrumdoc .tut-container .tut-header a:hover, .scrumdoc .tut-container .tut-header a:focus {
+      text-decoration: none !important;
+      outline: none; }
+
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
@@ -46,7 +57,8 @@
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: #1f7da8; }
+  background-color: #1f7da8;
+  text-decoration: none; }
 
 /* Caption text */
 .text {
@@ -62,7 +74,12 @@
   font-size: 12px;
   padding: 8px 12px;
   position: absolute;
-  top: 0; }
+  top: 15%;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translate(-50%); }
 
 /* The dots/bullets/indicators */
 .dot {
@@ -70,10 +87,10 @@
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #bbb;
+  background-color: #175D7D;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease; }
 
 .active, .dot:hover {
-  background-color: #717171; }
+  background-color: #0f3d52; }
