@@ -4,8 +4,7 @@
 .scrumdoc {
     .slide-text{
         position: absolute;
-        top: 20%;
-        left:50%;
+        @include center(both);
     }
 }
 
@@ -35,7 +34,7 @@
     font-size: 18px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
-    background-color: aquamarine;
+    background-color: lighten($blueBackground, 5%);
 }
 
 /* Position the "next button" to the right */
@@ -46,7 +45,8 @@
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
+    background-color: lighten($blueBackground, 10%);
+    text-decoration: none;
 }
 
 /* Caption text */

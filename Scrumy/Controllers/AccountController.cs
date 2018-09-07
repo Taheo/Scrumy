@@ -120,7 +120,15 @@ namespace Scrumy.Controllers
 
         public async Task<IActionResult> ScrumDoc()
         {
-            return View();
+            List<Slide> slides = new List<Slide>()
+            {
+                new Slide(){Id = 1, Content="You started with login page. Remember: never give your password to other person" },
+                new Slide(){Id = 2, Content="You dashboard is a hub where you can go to other places in app. Your role allows you to take specific actions"  },
+                new Slide(){Id = 3, Content="To jest trzeci slajd"  },
+                new Slide(){Id = 4, Content="To jest czwarty slajd"  },
+            };
+
+            return View(slides);
         }
 
         public async Task<IActionResult> ChooseScrumMaster()
