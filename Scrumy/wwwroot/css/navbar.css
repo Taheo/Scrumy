@@ -10,7 +10,8 @@
   .navbar-inverse .btn-link {
     color: #175D7D; }
     .navbar-inverse .btn-link:hover {
-      color: #1f7da8; }
+      color: #1f7da8;
+      text-decoration: none; }
 
 .navbar-inverse .navbar-brand,
 .navbar-inverse .navbar-nav > li > a {
