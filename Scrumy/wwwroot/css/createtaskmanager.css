@@ -7,7 +7,7 @@
 .create-task-manager .modal-container {
   position: relative;
   min-height: 200px; }
-  .create-task-manager .modal-container .btn-action {
+  .create-task-manager .modal-container .btn-action:first-of-type {
     position: absolute;
     width: 200px;
     position: absolute;
