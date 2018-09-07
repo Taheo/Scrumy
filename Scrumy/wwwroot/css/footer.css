@@ -12,8 +12,23 @@ footer {
     footer .social i:hover {
       cursor: pointer;
       color: #1f7da8; }
-  footer .info-bar ul {
-    list-style: none;
-    color: white; }
+  footer .info-bar {
+    color: #175D7D;
+    /*ul.action-bar {
+            list-style: none;
+            color: white;
+
+            li {
+                a {
+                    &:hover {
+                        color: lighten($blueBackground, 10%);
+                    }
+                }
+            }
+        }*/ }
+    footer .info-bar .action-container .action-panel li a {
+      color: #175D7D; }
+      footer .info-bar .action-container .action-panel li a:hover {
+        color: #1f7da8; }
   footer .copy {
     font-size: 1.7em; }

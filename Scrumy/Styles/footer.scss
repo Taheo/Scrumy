@@ -20,9 +20,31 @@ footer {
     }
 
     .info-bar {
-        ul {
+        color: $blueBackground;
+        /*ul.action-bar {
             list-style: none;
             color: white;
+
+            li {
+                a {
+                    &:hover {
+                        color: lighten($blueBackground, 10%);
+                    }
+                }
+            }
+        }*/
+        .action-container {
+            .action-panel {
+                li {
+                    a {
+                        color: $blueBackground;
+
+                        &:hover {
+                            color: lighten($blueBackground, 10%);
+                        }
+                    }
+                }
+            }
         }
     }
 
