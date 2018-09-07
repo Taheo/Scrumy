@@ -1,0 +1,17 @@
+﻿@import 'Variables.scss';
+@import 'Mixins.scss';
+
+.create-task-manager{
+    .modal-container{
+        position: relative;
+        min-height: 200px;
+        .btn-action{
+            position: absolute;
+            width: 200px;
+            @include center(both);
+        }
+    }
+    .manager-hints{
+
+    }
+}

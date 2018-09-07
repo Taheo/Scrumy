@@ -4,36 +4,27 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
-
-<h4>SprintTaskAddVM</h4>
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Title" class="control-label"></label>
-                    <input asp-for="Title" class="form-control" />
-                    <span asp-validation-for="Title" class="text-danger"></span>
+<section class="container-full create-task-manager">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="modal-container">
+                        <button type="button" class="btn-action" data-toggle="modal" data-target="#myModal">Create Task</button>
+                        @await Html.PartialAsync("_addTaskModal")
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Desc" class="control-label"></label>
-                    <input asp-for="Desc" class="form-control" />
-                    <span asp-validation-for="Desc" class="text-danger"></span>
+                <div class="col-md-6">
+                    <div class="manager-hints">
+                        <h3>
+                            Hints:
+                        </h3>
+                        <ul>
+                            <li>adasd</li>
+                            <li>asdadas</li>
+                            <li>asdasdas</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </form>
+            </div>
         </div>
-    </div>
-</div>
-
-<button type="button" class="btn-action" data-toggle="modal" data-target="#myModal">modal</button>
-@await Html.PartialAsync("_addTaskModal")
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+</section>
