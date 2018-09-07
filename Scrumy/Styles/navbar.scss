@@ -1,7 +1,28 @@
 ﻿@import 'Variables.scss';
 @import 'Mixins.scss';
 
-.navbar-inverse{
+.navbar-inverse {
     background: $navFootColor;
     border-bottom: 1px solid $borderGray;
+
+    .btn-link {
+        color: $blueBackground;
+
+        &:hover {
+            color: lighten($blueBackground, 10%);
+            text-decoration: none;
+        }
+    }
+}
+
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
+    color: $blueBackground;
+    font-size: 1.3em;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-brand:focus,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: lighten($blueBackground, 10%);
 }

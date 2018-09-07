@@ -7,3 +7,18 @@
 .navbar-inverse {
   background: #cccdce;
   border-bottom: 1px solid #666666; }
+  .navbar-inverse .btn-link {
+    color: #175D7D; }
+    .navbar-inverse .btn-link:hover {
+      color: #1f7da8; }
+
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
+  color: #175D7D;
+  font-size: 1.3em; }
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-brand:focus,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #1f7da8; }

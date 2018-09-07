@@ -90,4 +90,7 @@ section {
       display: inline-block;
       text-align: center;
       padding: 14px 16px;
-      text-decoration: none; }
+      text-decoration: none;
+      color: #175D7D; }
+      .action-container ul.action-panel li a:hover {
+        color: #1f7da8; }
