@@ -8,6 +8,7 @@
 
     .wall-col {
         border-top: 1px solid $borderGray;
+
         h4 {
             text-align: center;
         }
@@ -28,6 +29,22 @@
 
     .toDo-element {
         border: 1px solid $borderGray;
+        position: relative;
+
+        .close-icon {
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            color: $blueBackground;
+
+            &:hover {
+                color: lighten($blueBackground, 10%);
+            }
+
+            i {
+                font-size: 24px;
+            }
+        }
     }
 
     .done-element {

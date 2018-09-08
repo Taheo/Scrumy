@@ -89,6 +89,7 @@ namespace Scrumy.Controllers
                 return View();
             }
         }
+       
 
         // GET: SprintTask/Delete/5
         public ActionResult Delete(Guid id)
@@ -96,7 +97,8 @@ namespace Scrumy.Controllers
             var st = _context.SprintTasks.Find(id);
             _context.SprintTasks.Remove(st);
             _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(AgileWall));
+           
         }
 
         // POST: SprintTask/Delete/5

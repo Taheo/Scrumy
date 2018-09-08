@@ -14,50 +14,57 @@
                 <h4>Backlog</h4>
                 @foreach (var item in Model)
                 {
-                    <div class="toDo-element element">
-                        <p>
-                            Title: @Html.DisplayFor(modelItem => item.Title)
-                        </p>
+                <div class="toDo-element element">
+                    <p>
+                        Title: @Html.DisplayFor(modelItem => item.Title)
+                    </p>
 
-                        <button type="button" class="btn-action" data-toggle="modal" data-target="#@item.Id">Details</button>
+                    @if (User.IsInRole("Product Owner"))
+                    {
+                        <a asp-area="" asp-controller="SprintTask" asp-action="Delete" asp-route-id="@item.Id" class="close-icon">
+                            <i class="fas fa-times-circle"></i>
+                        </a>
+                    }
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="@item.Id" role="dialog">
-                            <div class="modal-dialog">
+                    <button type="button" class="btn-action" data-toggle="modal" data-target="#@item.Id">Details</button>
 
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Task Details</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>
-                                            Title: @Html.DisplayFor(modelItem => item.Title)
-                                        </p>
-                                        @if (item.Desc != null)
-                                        {
-                                            <p>
-                                                Description: @Html.DisplayFor(modelItem => item.Desc)
-                                            </p>
-                                        }
-                                        else
-                                        {
-                                            <p>
-                                                This task has no description.
-                                            </p>
-                                        }
+                    <!-- Modal -->
+                    <div class="modal fade" id="@item.Id" role="dialog">
+                        <div class="modal-dialog">
 
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Task Details</h4>
                                 </div>
+                                <div class="modal-body">
+                                    <p>
+                                        Title: @Html.DisplayFor(modelItem => item.Title)
+                                    </p>
+                                    @if (item.Desc != null)
+                                    {
+                                        <p>
+                                            Description: @Html.DisplayFor(modelItem => item.Desc)
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p>
+                                            This task has no description.
+                                        </p>
+                                    }
 
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
+
                         </div>
                     </div>
+                </div>
                 }
 
                 @if (User.IsInRole("Product Owner"))
