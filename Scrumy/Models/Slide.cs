@@ -7,7 +7,13 @@ namespace Scrumy.Models
 {
     public class Slide
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
+        public int Number { get; set; }
         public string Content { get; set; }
+
+        public Slide()
+        {
+            Id = new Guid();
+        }
     }
 }

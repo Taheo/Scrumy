@@ -27,14 +27,14 @@
 .agilewall .toDo-element {
   border: 1px solid #666666;
   position: relative; }
-  .agilewall .toDo-element .close-icon {
+  .agilewall .toDo-element .delete-icon {
     position: absolute;
     top: -1px;
     right: -1px;
     color: #175D7D; }
-    .agilewall .toDo-element .close-icon:hover {
+    .agilewall .toDo-element .delete-icon:hover {
       color: #1f7da8; }
-    .agilewall .toDo-element .close-icon i {
+    .agilewall .toDo-element .delete-icon i {
       font-size: 24px; }
 
 .agilewall .done-element {

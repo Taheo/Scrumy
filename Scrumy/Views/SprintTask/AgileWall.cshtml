@@ -21,7 +21,7 @@
 
                     @if (User.IsInRole("Product Owner"))
                     {
-                        <a asp-area="" asp-controller="SprintTask" asp-action="Delete" asp-route-id="@item.Id" class="close-icon">
+                        <a asp-area="" asp-controller="SprintTask" asp-action="Delete" asp-route-id="@item.Id" class="delete-icon">
                             <i class="fas fa-times-circle"></i>
                         </a>
                     }

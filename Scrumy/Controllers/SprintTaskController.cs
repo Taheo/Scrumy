@@ -31,6 +31,15 @@ namespace Scrumy.Controllers
             return View(st);
         }
 
+        public ActionResult Stats()
+        {
+            return View();
+        }
+
+        public ActionResult Archive()
+        {
+            return View();
+        }
         // GET: SprintTask/Details/5
         public ActionResult Details(int id)
         {
@@ -58,7 +67,7 @@ namespace Scrumy.Controllers
                     _context.Add(newTask);
                     _context.SaveChanges();
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(AgileWall));
             }
             catch
             {

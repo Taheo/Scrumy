@@ -6,9 +6,9 @@
         position: relative;
         min-height: 200px;
         .btn-action:first-of-type{
-            position: absolute;
             width: 200px;
-            @include center(both);
+            @include center(horizontal);
+            bottom: 16px;
         }
     }
     .manager-hints{
