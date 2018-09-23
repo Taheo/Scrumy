@@ -30,10 +30,16 @@
                             @foreach (var item in Model)
                             {
                                 <div class="mySlides">
-                                    <div class="numbertext">@item.Id / @max  </div>
+                                    <div class="numbertext">@item.Number / @max  </div>
                                     <p class="slide-text">
                                         @item.Content
                                     </p>
+                                    <div class="slide-options">
+                                        @if (User.IsInRole("Scrum Master"))
+                                        {
+                                            <a asp-controller="ScrumDoc" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                        }
+                                    </div>
                                     @*<div class="text">Caption Text</div>*@
                                 </div>
 

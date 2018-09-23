@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Scrumy.Data;
 using Scrumy.Models;
 using Scrumy.Models.AccountViewModels;
 using Scrumy.Services;
@@ -25,19 +26,22 @@ namespace Scrumy.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
+        private readonly ApplicationDbContext _context;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             RoleManager<IdentityRole> roleManager,
             IEmailSender emailSender,
-            ILogger<AccountController> logger)
+            ILogger<AccountController> logger,
+            ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
             _roleManager = roleManager;
+            _context = context;
         }
 
         [TempData]
@@ -120,15 +124,9 @@ namespace Scrumy.Controllers
 
         public async Task<IActionResult> ScrumDoc()
         {
-            //List<Slide> slides = new List<Slide>()
-            //{
-            //    new Slide(){Id = 1, Content="You started with login page. Remember: never give your password to other person" },
-            //    new Slide(){Id = 2, Content="You dashboard is a hub where you can go to other places in app. Your role allows you to take specific actions"  },
-            //    new Slide(){Id = 3, Content="To jest trzeci slajd"  },
-            //    new Slide(){Id = 4, Content="To jest czwarty slajd"  },
-            //};
+            var slides = _context.Slides.ToList();
 
-            return View();
+            return View(slides);
         }
 
         public async Task<IActionResult> ChooseScrumMaster()

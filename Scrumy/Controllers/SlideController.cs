@@ -4,15 +4,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Scrumy.Data;
+using Scrumy.Models;
+using Scrumy.Models.SlidesViewModel;
 
 namespace Scrumy.Controllers
 {
     public class SlideController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public SlideController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         // GET: Slide
         public ActionResult Index()
         {
-            return View();
+            var st = _context.Slides.ToList();
+            return View(st);
         }
 
         // GET: Slide/Details/5
@@ -30,11 +40,17 @@ namespace Scrumy.Controllers
         // POST: Slide/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(SlideAddVM slide)
         {
             try
             {
                 // TODO: Add insert logic here
+                var newSlide = new Slide { Number = slide.Number, Content = slide.Content };
+                if (ModelState.IsValid)
+                {
+                    _context.Add(newSlide);
+                    _context.SaveChanges();
+                }
 
                 return RedirectToAction(nameof(Index));
             }
