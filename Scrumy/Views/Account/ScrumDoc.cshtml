@@ -37,7 +37,7 @@
                                     <div class="slide-options">
                                         @if (User.IsInRole("Scrum Master"))
                                         {
-                                            <a asp-controller="ScrumDoc" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                            <a asp-controller="Slide" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                                         }
                                     </div>
                                     @*<div class="text">Caption Text</div>*@

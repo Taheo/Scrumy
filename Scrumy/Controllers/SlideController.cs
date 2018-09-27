@@ -61,7 +61,7 @@ namespace Scrumy.Controllers
         }
 
         // GET: Slide/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
             return View();
         }
@@ -69,11 +69,12 @@ namespace Scrumy.Controllers
         // POST: Slide/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Slide model)
         {
             try
             {
-                // TODO: Add update logic here
+                _context.Slides.Update(model);
+                _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
