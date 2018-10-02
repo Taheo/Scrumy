@@ -42,7 +42,19 @@
             }
 
             i {
-                font-size: 24px;
+                font-size: 24px; /*move to em?*/
+            }
+        }
+
+        .move-buttons {
+            margin-top: 1em; /*watch*/
+            i {
+                font-size: 3em;
+                color: $blueBackground;
+
+                &:hover {
+                    color: lighten($blueBackground, 10%);
+                }
             }
         }
     }
