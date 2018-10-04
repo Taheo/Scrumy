@@ -45,16 +45,16 @@
                 font-size: 24px; /*move to em?*/
             }
         }
+    }
 
-        .move-buttons {
-            margin-top: 1em; /*watch*/
-            i {
-                font-size: 3em;
-                color: $blueBackground;
+    .move-buttons {
+        margin-top: 1em; /*watch*/
+        i {
+            font-size: 3em;
+            color: $blueBackground;
 
-                &:hover {
-                    color: lighten($blueBackground, 10%);
-                }
+            &:hover {
+                color: lighten($blueBackground, 10%);
             }
         }
     }

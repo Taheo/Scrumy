@@ -37,14 +37,15 @@
     .agilewall .toDo-element .delete-icon i {
       font-size: 24px;
       /*move to em?*/ }
-  .agilewall .toDo-element .move-buttons {
-    margin-top: 1em;
-    /*watch*/ }
-    .agilewall .toDo-element .move-buttons i {
-      font-size: 3em;
-      color: #175D7D; }
-      .agilewall .toDo-element .move-buttons i:hover {
-        color: #1f7da8; }
+
+.agilewall .move-buttons {
+  margin-top: 1em;
+  /*watch*/ }
+  .agilewall .move-buttons i {
+    font-size: 3em;
+    color: #175D7D; }
+    .agilewall .move-buttons i:hover {
+      color: #1f7da8; }
 
 .agilewall .done-element {
   border: 1px solid #4df24b;
