@@ -13,6 +13,7 @@ namespace Scrumy.Models
         public string Title { get; set; }
         public string Desc { get; set; }
         public bool isDone { get; set; }
+        public bool isInCurrentSprint { get; set; }
 
         public SprintTask()
         {
