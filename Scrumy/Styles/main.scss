@@ -63,6 +63,11 @@ section{
 .container-full {
     width: 100%;
 }
+
+.container-full-90 {
+    width: 90%;
+    margin: 0 auto;
+}
 //Partials
 .action-container {
     ul.action-panel {
