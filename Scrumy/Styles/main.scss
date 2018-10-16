@@ -50,6 +50,10 @@ section{
     @include basicButton($blueBackground);
 }
 
+.btn-view-large{
+    width: 175px;
+}
+
 .btn-action {
     background: $blueBackground;
     font-size: 1.4em;

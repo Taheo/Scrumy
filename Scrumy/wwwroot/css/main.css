@@ -56,6 +56,9 @@ section {
     background-color: #0f3d52;
     color: white; }
 
+.btn-view-large {
+  width: 175px; }
+
 .btn-action {
   background: #175D7D;
   font-size: 1.4em;
@@ -79,7 +82,8 @@ section {
   width: 100%; }
 
 .container-full-90 {
-  width: 90%; }
+  width: 90%;
+  margin: 0 auto; }
 
 .action-container ul.action-panel {
   list-style-type: none;

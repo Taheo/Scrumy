@@ -26,13 +26,28 @@
                         </a>
                     }
 
+                    
+
                     <button type="button" class="btn-action" data-toggle="modal" data-target="#@item.Id">Details</button>
                     <div class="move-buttons">
                         <a asp-area="" asp-controller="SprintTask" asp-action="MoveRight" asp-route-id="@item.Id" class="move-right">
                             <i class="fas fa-arrow-circle-right"></i>
-                        </a>    
+                        </a>
                     </div>
-                    
+                    @if (User.IsInRole("Developer"))
+                    {
+                    <div class="dev-actions">
+
+                        <a asp-area="" asp-controller="SprintTask" asp-action="TaskDone" asp-route-id="@item.Id" class="">
+                            <i class="fas fa-check"></i>
+                        </a>
+                        <a asp-area="" asp-controller="SprintTask" asp-action="AddComment" asp-route-id="@item.Id" class="">
+                            <i class="fas fa-comment"></i>
+                        </a>
+
+                    </div>
+                    }
+
                     <!-- Modal -->
                     <div class="modal fade" id="@item.Id" role="dialog">
                         <div class="modal-dialog">
@@ -145,7 +160,7 @@
                     }
 
                 }
-                <a asp-area="" asp-controller="Sprint" asp-action="Create" @*asp-route-id="@item.Id"*@ class="btn btn-action">
+                <a asp-area="" asp-controller="Sprint" asp-action="Create" @*asp-route-id="@item.Id"*@ class="btn-view btn-view-large">
                     Generate Sprint
                 </a>
             </div>
