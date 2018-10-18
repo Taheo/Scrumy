@@ -72,6 +72,10 @@ section{
     width: 90%;
     margin: 0 auto;
 }
+
+.margin-auto{
+    @include margin-auto;
+}
 //Partials
 .action-container {
     ul.action-panel {

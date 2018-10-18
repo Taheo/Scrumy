@@ -14,75 +14,78 @@
                 <h4>Backlog</h4>
                 @foreach (var item in Model)
                 {
-                <div class="toDo-element element">
-                    <p>
-                        Title: @Html.DisplayFor(modelItem => item.Title)
-                    </p>
-
-                    @if (User.IsInRole("Product Owner"))
+                    @if (item.isDone == false && item.isInCurrentSprint == false)
                     {
-                        <a asp-area="" asp-controller="SprintTask" asp-action="Delete" asp-route-id="@item.Id" class="delete-icon">
-                            <i class="fas fa-times-circle"></i>
-                        </a>
-                    }
+                        <div class="toDo-element element">
+                            <p>
+                                Title: @Html.DisplayFor(modelItem => item.Title)
+                            </p>
 
-                    
-
-                    <button type="button" class="btn-action" data-toggle="modal" data-target="#@item.Id">Details</button>
-                    <div class="move-buttons">
-                        <a asp-area="" asp-controller="SprintTask" asp-action="AddComment" asp-route-id="@item.Id" class="">
-                            <i class="fas fa-comment"></i>
-                        </a>
-                        <a asp-area="" asp-controller="SprintTask" asp-action="MoveToCurrentSprint" asp-route-id="@item.Id" class="move-right">
-                            <i class="fas fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="@item.Id" role="dialog">
-                        <div class="modal-dialog">
-
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Task Details</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>
-                                        Title: @Html.DisplayFor(modelItem => item.Title)
-                                    </p>
-                                    @if (item.Desc != null)
-                                    {
-                                        <p>
-                                            Description: @Html.DisplayFor(modelItem => item.Desc)
-                                        </p>
-                                    }
-                                    else
-                                    {
-                                        <p>
-                                            This task has no description.
-                                        </p>
-                                    }
+                            @if (User.IsInRole("Product Owner"))
+                            {
+                                <a asp-area="" asp-controller="SprintTask" asp-action="Delete" asp-route-id="@item.Id" class="delete-icon" title="Delete">
+                                    <i class="fas fa-times-circle"></i>
+                                </a>
+                            }
 
 
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
+
+                            <button type="button" class="btn-action" data-toggle="modal" data-target="#@item.Id">Details</button>
+                            <div class="move-buttons">
+                                <a asp-area="" asp-controller="SprintTask" asp-action="AddComment" asp-route-id="@item.Id" title="Add Comment">
+                                    <i class="fas fa-comment"></i>
+                                </a>
+                                <a asp-area="" asp-controller="SprintTask" asp-action="MoveToCurrentSprint" asp-route-id="@item.Id" class="move-right" title="Move To Current Sprint">
+                                    <i class="fas fa-arrow-circle-right"></i>
+                                </a>
                             </div>
 
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="@item.Id" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Task Details</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>
+                                                Title: @Html.DisplayFor(modelItem => item.Title)
+                                            </p>
+                                            @if (item.Desc != null)
+                                            {
+                                                <p>
+                                                    Description: @Html.DisplayFor(modelItem => item.Desc)
+                                                </p>
+                                            }
+                                            else
+                                            {
+                                                <p>
+                                                    This task has no description.
+                                                </p>
+                                            }
+
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    }
+
                 }
 
                 @if (User.IsInRole("Product Owner"))
                 {
                     <div class="actions">
-
-                        <a asp-area="" asp-controller="SprintTask" asp-action="Create" class="btn-view">Add Task</a>
-
-
+                        <a asp-area="" asp-controller="SprintTask" asp-action="Create" class="btn-view margin-auto">Add Task</a>
                     </div>
                 }
             </div>
@@ -90,8 +93,7 @@
                 <h4>ToDo in Current Sprint</h4>
                 @foreach (var item in Model)
                 {
-                    //TODO Watch OUT
-                    @if (item.isDone == false)
+                    @if (item.isInCurrentSprint == true)
                     {
                         <div class="done-element element">
                             <p>
@@ -100,13 +102,13 @@
 
                             <button type="button" class="btn-action" data-toggle="modal" data-target="#@item.Id">Details</button>
                             <div class="move-buttons">
-                                <a asp-area="" asp-controller="SprintTask" asp-action="MoveLeft" asp-route-id="@item.Id" class="move-left">
+                                <a asp-area="" asp-controller="SprintTask" asp-action="BackToBacklog" asp-route-id="@item.Id" class="move-left" title="Back To Backlog">
                                     <i class="fas fa-arrow-circle-left"></i>
                                 </a>
-                                <a asp-area="" asp-controller="SprintTask" asp-action="AddComment" asp-route-id="@item.Id" class="">
+                                <a asp-area="" asp-controller="SprintTask" asp-action="AddComment" asp-route-id="@item.Id" title="Add Comment">
                                     <i class="fas fa-comment"></i>
                                 </a>
-                                <a asp-area="" asp-controller="SprintTask" asp-action="MoveRight" asp-route-id="@item.Id" class="move-right">
+                                <a asp-area="" asp-controller="SprintTask" asp-action="setAsDone" asp-route-id="@item.Id" class="move-right" title="Set as Done">
                                     <i class="fas fa-check-circle"></i>
                                 </a>
 
@@ -152,7 +154,7 @@
                     }
 
                 }
-                <a asp-area="" asp-controller="Sprint" asp-action="Create" @*asp-route-id="@item.Id"*@ class="btn-view btn-view-large">
+                <a asp-area="" asp-controller="Sprint" asp-action="Create" class="btn-view btn-view-large margin-auto">
                     Generate Sprint
                 </a>
             </div>
@@ -161,7 +163,7 @@
                 @foreach (var item in Model)
                 {
                     //TODO Watch OUT
-                    @if (item.isDone == false)
+                    @if (item.isDone == true)
                     {
                 <div class="done-element element">
                     <p>
