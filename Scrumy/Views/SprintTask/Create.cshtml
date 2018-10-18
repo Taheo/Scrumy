@@ -7,24 +7,25 @@
 <section class="container-full create-task-manager">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="modal-container">
-                        <button type="button" class="btn-action" data-toggle="modal" data-target="#myModal">Create Task</button>
-                        @await Html.PartialAsync("_addTaskModal")
-                    </div>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="manager-hints">
                         <h3>
                             Hints:
                         </h3>
                         <ul>
-                            <li>adasd</li>
-                            <li>asdadas</li>
-                            <li>asdasdas</li>
+                            <li>Explain tasks clearly</li>
+                            <li>Assign helpful titles</li>
+                            <li>Remember to help devteam by adding description</li>
                         </ul>
                     </div>
                 </div>
+                <div class="col-md-12">
+                    <div class="modal-container">
+                        <button type="button" class="btn-action" data-toggle="modal" data-target="#addTaskModal">Create Task</button>
+                        @await Html.PartialAsync("_addTaskModal")
+                    </div>
+                </div>
+
             </div>
         </div>
 </section>

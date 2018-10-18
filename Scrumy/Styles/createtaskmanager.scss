@@ -5,7 +5,7 @@
     .modal-container{
         position: relative;
         min-height: 200px;
-        .btn-action:first-of-type{
+        .btn-action:first-of-type:not(.btn-modal){
             width: 200px;
             @include center(horizontal);
             bottom: 16px;
