@@ -37,6 +37,12 @@
       margin-top: -24px;
       right: 75%;
       margin-right: -75px; }
+    .dashboard .dashboard-box .action-btn-box .sm-actions {
+      position: absolute;
+      bottom: 0; }
   .dashboard .dashboard-box .action-desc {
     width: 50%;
     float: right; }
+  .dashboard .dashboard-box .action-pill {
+    background: #175D7D;
+    color: white; }

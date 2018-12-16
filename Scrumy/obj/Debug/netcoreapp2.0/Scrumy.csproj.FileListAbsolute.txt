@@ -3,10 +3,10 @@ E:\programowanie\Engi\Scrumy\Scrumy\bin\Debug\netcoreapp2.0\Scrumy.runtimeconfig
 E:\programowanie\Engi\Scrumy\Scrumy\bin\Debug\netcoreapp2.0\Scrumy.runtimeconfig.dev.json
 E:\programowanie\Engi\Scrumy\Scrumy\bin\Debug\netcoreapp2.0\Scrumy.dll
 E:\programowanie\Engi\Scrumy\Scrumy\bin\Debug\netcoreapp2.0\Scrumy.pdb
+E:\programowanie\Engi\Scrumy\Scrumy\obj\Debug\netcoreapp2.0\Scrumy.csprojAssemblyReference.cache
 E:\programowanie\Engi\Scrumy\Scrumy\obj\Debug\netcoreapp2.0\Scrumy.csproj.CoreCompileInputs.cache
+E:\programowanie\Engi\Scrumy\Scrumy\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 E:\programowanie\Engi\Scrumy\Scrumy\obj\Debug\netcoreapp2.0\Scrumy.AssemblyInfoInputs.cache
 E:\programowanie\Engi\Scrumy\Scrumy\obj\Debug\netcoreapp2.0\Scrumy.AssemblyInfo.cs
 E:\programowanie\Engi\Scrumy\Scrumy\obj\Debug\netcoreapp2.0\Scrumy.dll
 E:\programowanie\Engi\Scrumy\Scrumy\obj\Debug\netcoreapp2.0\Scrumy.pdb
-E:\programowanie\Engi\Scrumy\Scrumy\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
-E:\programowanie\Engi\Scrumy\Scrumy\obj\Debug\netcoreapp2.0\Scrumy.csprojAssemblyReference.cache

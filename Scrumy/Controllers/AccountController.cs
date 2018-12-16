@@ -125,8 +125,23 @@ namespace Scrumy.Controllers
         public async Task<IActionResult> ScrumDoc()
         {
             var slides = _context.Slides.ToList();
+            var techMat = _context.TeachingMaterials.ToList();
 
             return View(slides);
+        }
+
+        public async Task<IActionResult> ScrumDocEXT()
+        {
+            var slides = _context.Slides;
+            var techMat = _context.TeachingMaterials;
+
+            var model = new SlidesTechMat
+            {
+                SlideSet = slides.ToList(),
+                TechMatSet = techMat.ToList()
+            };
+
+            return View(model);
         }
 
         public async Task<IActionResult> ChooseScrumMaster()

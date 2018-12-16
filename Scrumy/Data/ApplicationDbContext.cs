@@ -34,5 +34,6 @@ namespace Scrumy.Data
         public DbSet<SprintTask> SprintTasks { get; set; }
         public DbSet<Sprint> Sprints { get; set; }
         public DbSet<Slide> Slides { get; set; }
+        public DbSet<TeachingMaterial> TeachingMaterials { get; set; }
     }
 }

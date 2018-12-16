@@ -24,6 +24,9 @@
       text-decoration: none !important;
       outline: none; }
 
+.techmat-container {
+  text-align: center; }
+
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;

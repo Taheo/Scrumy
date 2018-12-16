@@ -1,8 +1,7 @@
-﻿@model IEnumerable<Slide>
+﻿@model Scrumy.Models.AccountViewModels.SlidesTechMat
 @{
-    ViewData["Title"] = "ScrumDoc";
+    ViewData["Title"] = "ScrumDocEXT";
 }
-
 <section class="scrumdoc container-full">
     <div class="container">
         <div class="intro">
@@ -10,7 +9,7 @@
                 Welcome in Scrum Doc. Here you can master your Scrum skills and learn how to use Scrumy.
             </h3>
         </div>
-  
+
         <div class="panel-group tut-container" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
@@ -25,22 +24,22 @@
                         <div class="slideshow-container">
 
                             @{
-                                var max = Model.Count();
+                                var max = Model.SlideSet.Count();
                             }
-                            @foreach (var item in Model)
+                            @foreach (var item in Model.SlideSet)
                             {
                                 <div class="mySlides">
                                     <div class="numbertext">@item.Number / @max  </div>
                                     <p class="slide-text">
                                         @item.Content
                                     </p>
-                                    <div class="slide-options">
+                                    @*<div class="slide-options">
                                         @if (User.IsInRole("Scrum Master"))
                                         {
                                             <a asp-controller="Slide" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                                             <button type="button" class="btn-action" data-toggle="modal" data-target="#EditModal">EditSlide</button>
                                         }
-                                    </div>
+                                    </div>*@
                                     @*<div class="text">Caption Text</div>*@
                                 </div>
 
@@ -88,7 +87,7 @@
                         </div>
                         <div style="text-align:center">
 
-                            @foreach (var item in Model)
+                            @foreach (var item in Model.SlideSet)
                             {
                                 <span class="dot" onclick="currentSlide(@item.Id)"></span>
                             }
@@ -107,11 +106,29 @@
                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                     <div class="panel-body">
 
-                        @if (User.IsInRole("Scrum Master"))
+                        @*@if (User.IsInRole("Scrum Master"))
                         {
-                            @*<button type="button" class="btn-action" data-toggle="modal" data-target="#AddMaterialModal">Add Material</button>*@
-                              <a asp-controller="TeachingMaterial" asp-action="Create">Create</a>
-                        }
+                            @*<button type="button" class="btn-action" data-toggle="modal" data-target="#AddMaterialModal">Add Material</button>
+                            <a asp-controller="TeachingMaterial" asp-action="Create">Create</a>
+
+
+
+                        }*@
+                            <div class="row techmat-container">
+                                <div class="col-md-6">
+                                    @foreach (var item in Model.TechMatSet)
+                                    { 
+                                        @item.Link
+                                    }
+                                </div>
+                                <div class="col-md-6">
+                                    @foreach (var item in Model.TechMatSet)
+                                    {
+                                        @item.Note
+                                    }
+                                </div>
+                            </div>
+                            
 
                     </div>
                 </div>

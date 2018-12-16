@@ -6,49 +6,50 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Scrumy.Data;
 using Scrumy.Models;
-using Scrumy.Models.SlidesViewModel;
+using Scrumy.Models.TeachingMaterialsVM;
 
 namespace Scrumy.Controllers
 {
-    public class SlideController : Controller
+    public class TeachingMaterialController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public SlideController(ApplicationDbContext context)
+        public TeachingMaterialController(ApplicationDbContext context)
         {
             _context = context;
         }
-        // GET: Slide
+
+        // GET: TeachingMaterial
         public ActionResult Index()
         {
-            var st = _context.Slides.ToList();
+            var st = _context.TeachingMaterials.ToList();
             return View(st);
         }
 
-        // GET: Slide/Details/5
+        // GET: TeachingMaterial/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Slide/Create
+        // GET: TeachingMaterial/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Slide/Create
+        // POST: TeachingMaterial/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(SlideAddVM slide)
+        public ActionResult Create(TeachingMaterialVM model)
         {
             try
             {
                 // TODO: Add insert logic here
-                var newSlide = new Slide { Number = slide.Number, Content = slide.Content };
+                var newMaterial = new TeachingMaterial { Link = model.Link, Note = model.Note };
                 if (ModelState.IsValid)
                 {
-                    _context.Add(newSlide);
+                    _context.Add(newMaterial);
                     _context.SaveChanges();
                 }
 
@@ -60,21 +61,20 @@ namespace Scrumy.Controllers
             }
         }
 
-        // GET: Slide/Edit/5
-        public ActionResult Edit(Guid id)
+        // GET: TeachingMaterial/Edit/5
+        public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Slide/Edit/5
+        // POST: TeachingMaterial/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Slide model)
+        public ActionResult Edit(int id, IFormCollection collection)
         {
             try
             {
-                _context.Slides.Update(model);
-                _context.SaveChanges();
+                // TODO: Add update logic here
 
                 return RedirectToAction(nameof(Index));
             }
@@ -84,38 +84,13 @@ namespace Scrumy.Controllers
             }
         }
 
-        //[HttpGet] // this action result returns the partial containing the modal
-        //public ActionResult EditSlide(Guid id)
-        //{
-        //    var viewModel = new SlideEditVM
-        //    {
-        //        Id = id
-        //    };
-        //    return PartialView("_editSlide", viewModel);
-        //}
-
-        //[HttpPost] // this action takes the viewModel from the modal
-        //public ActionResult EditSlide(SlideEditVM viewModel)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var toUpdate = _context.Slides.Find(viewModel.Id);
-        //        toUpdate.Content = viewModel.Content;
-        //        toUpdate.Number = viewModel.Number;
-        //        _context.Slides.Update(toUpdate);
-        //        _context.SaveChanges();
-        //        return View("Index");
-        //    }
-        //    return RedirectToAction(nameof(AccountController.ScrumDoc));
-        //}
-
-        // GET: Slide/Delete/5
+        // GET: TeachingMaterial/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Slide/Delete/5
+        // POST: TeachingMaterial/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
