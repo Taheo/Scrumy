@@ -89,6 +89,10 @@ section {
   margin-left: auto;
   margin-right: auto; }
 
+.form-control:focus {
+  box-shadow: none;
+  border-color: #1f7da8; }
+
 .action-container ul.action-panel {
   list-style-type: none;
   margin: 0;

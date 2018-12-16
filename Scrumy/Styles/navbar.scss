@@ -25,4 +25,5 @@
 .navbar-inverse .navbar-brand:focus,
 .navbar-inverse .navbar-nav > li > a:focus {
     color: lighten($blueBackground, 10%);
+    outline: lighten($blueBackground, 10%);
 }

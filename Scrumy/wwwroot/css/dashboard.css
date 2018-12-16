@@ -45,4 +45,8 @@
     float: right; }
   .dashboard .dashboard-box .action-pill {
     background: #175D7D;
-    color: white; }
+    color: white;
+    display: block;
+    border-radius: 8px; }
+    .dashboard .dashboard-box .action-pill:first-of-type {
+      margin-right: 8px; }

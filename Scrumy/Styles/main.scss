@@ -76,6 +76,11 @@ section{
 .margin-auto{
     @include margin-auto;
 }
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: lighten($blueBackground, 10%);
+}
 //Partials
 .action-container {
     ul.action-panel {
