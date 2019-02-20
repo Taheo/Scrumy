@@ -31,9 +31,9 @@
     position: absolute;
     top: -1px;
     right: -1px;
-    color: #175D7D; }
+    color: #489de8; }
     .agilewall .toDo-element .delete-icon:hover {
-      color: #1f7da8; }
+      color: #75b5ee; }
     .agilewall .toDo-element .delete-icon i {
       font-size: 24px;
       /*move to em?*/ }
@@ -43,9 +43,9 @@
   /*watch*/ }
   .agilewall .move-buttons i {
     font-size: 3em;
-    color: #175D7D; }
+    color: #489de8; }
     .agilewall .move-buttons i:hover {
-      color: #1f7da8; }
+      color: #75b5ee; }
 
 .agilewall .done-element {
   border: 1px solid #4df24b;

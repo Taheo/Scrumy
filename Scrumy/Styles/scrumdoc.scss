@@ -29,6 +29,10 @@
     text-align: center;
 }
 
+.note-container, .link-container 
+{
+    border-bottom: 1px solid $borderGray;
+}
 /* Slideshow container */
 .slideshow-container {
     max-width: 1000px;

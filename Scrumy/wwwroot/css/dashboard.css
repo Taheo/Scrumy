@@ -15,7 +15,7 @@
     transform: translate(-50%, -50%); }
 
 .dashboard .dashboard-box {
-  background: #cccdce;
+  background: #ececec;
   padding: 12px;
   border-radius: 12px;
   margin-bottom: 16px;
@@ -44,7 +44,7 @@
     width: 50%;
     float: right; }
   .dashboard .dashboard-box .action-pill {
-    background: #175D7D;
+    background: #489de8;
     color: white;
     display: block;
     border-radius: 8px; }

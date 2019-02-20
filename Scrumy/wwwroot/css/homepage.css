@@ -5,7 +5,7 @@
 /*#007BC2*/
 /*#29A0D8*/
 .slider {
-  color: #6c7579;
+  color: #5d5e5e;
   position: relative; }
   .slider .slider-content {
     position: absolute;
@@ -22,7 +22,7 @@
   text-align: center; }
   .attributes .attribute {
     min-height: 200px;
-    color: #175D7D; }
+    color: #489de8; }
     .attributes .attribute h3, .attributes .attribute p {
       margin-bottom: 16px; }
   .attributes i {
@@ -38,7 +38,7 @@
     font-size: 4em;
     padding: 8px 0;
     margin: 8px 0;
-    color: #175D7D; }
+    color: #489de8; }
 
 .app-desc {
   text-align: center;

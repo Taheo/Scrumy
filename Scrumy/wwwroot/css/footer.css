@@ -3,16 +3,16 @@
 /*#29A0D8*/
 footer {
   text-align: center;
-  background: #cccdce;
+  background: #ececec;
   padding: 12px 0;
-  color: #175D7D; }
+  color: #489de8; }
   footer .social i {
     font-size: 3.5em;
     margin: 0 8px; }
     footer .social i:hover {
       cursor: pointer;
-      color: #1f7da8; }
+      color: #75b5ee; }
   footer .info-bar {
-    color: #175D7D; }
+    color: #489de8; }
   footer .copy {
     font-size: 1.7em; }

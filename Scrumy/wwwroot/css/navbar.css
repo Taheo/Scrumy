@@ -5,22 +5,22 @@
 /*#007BC2*/
 /*#29A0D8*/
 .navbar-inverse {
-  background: #cccdce;
-  border-bottom: 1px solid #666666; }
+  background: #ececec;
+  border-bottom: none; }
   .navbar-inverse .btn-link {
-    color: #175D7D; }
+    color: #489de8; }
     .navbar-inverse .btn-link:hover {
-      color: #1f7da8;
+      color: #75b5ee;
       text-decoration: none; }
 
 .navbar-inverse .navbar-brand,
 .navbar-inverse .navbar-nav > li > a {
-  color: #175D7D;
+  color: #489de8;
   font-size: 1.3em; }
 
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-brand:focus,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #1f7da8;
-  outline: #1f7da8; }
+  color: #75b5ee;
+  outline: #75b5ee; }

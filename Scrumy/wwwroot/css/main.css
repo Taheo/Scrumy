@@ -7,7 +7,7 @@
 body {
   background-color: #FFFFFF !important;
   font-size: 12px;
-  color: #6c7579 !important;
+  color: #5d5e5e !important;
   box-sizing: border-box; }
 
 ul {
@@ -38,44 +38,44 @@ section {
   padding: 40px 0px; }
 
 .btn-view {
-  background: #175D7D;
+  background: #489de8;
   font-size: 1.8em;
   padding: 8px;
   width: 150px;
   border-radius: 12px;
   color: white;
-  border: 1px solid #134d67;
+  border: 1px solid #3191e5;
   display: block;
   text-align: center; }
   .btn-view:hover {
     text-decoration: none;
-    background-color: #1f7da8;
+    background-color: #75b5ee;
     color: white; }
   .btn-view:focus {
     text-decoration: none;
-    background-color: #0f3d52;
+    background-color: #1c85e1;
     color: white; }
 
 .btn-view-large {
   width: 175px; }
 
 .btn-action {
-  background: #175D7D;
+  background: #489de8;
   font-size: 1.4em;
   padding: 8px;
   width: 100px;
   border-radius: 8px;
   color: white;
-  border: 1px solid #134d67;
+  border: 1px solid #3191e5;
   display: block;
   text-align: center; }
   .btn-action:hover {
     text-decoration: none;
-    background-color: #1f7da8;
+    background-color: #75b5ee;
     color: white; }
   .btn-action:focus {
     text-decoration: none;
-    background-color: #0f3d52;
+    background-color: #1c85e1;
     color: white; }
 
 .container-full {
@@ -91,7 +91,7 @@ section {
 
 .form-control:focus {
   box-shadow: none;
-  border-color: #1f7da8; }
+  border-color: #75b5ee; }
 
 .action-container ul.action-panel {
   list-style-type: none;
@@ -106,6 +106,6 @@ section {
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
-      color: #175D7D; }
+      color: #489de8; }
       .action-container ul.action-panel li a:hover {
-        color: #1f7da8; }
+        color: #75b5ee; }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Scrumy.Models.AccountViewModels
+namespace Scrumy.Models.MixedVM
 {
     public class SlidesTechMat
     {

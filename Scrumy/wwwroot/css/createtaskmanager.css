@@ -10,8 +10,8 @@
   .create-task-manager .modal-container .btn-action:first-of-type:not(.btn-modal) {
     width: 200px;
     position: absolute;
+    top: 50%;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translate(-50%);
-    bottom: 16px; }
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
