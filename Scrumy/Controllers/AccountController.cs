@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using Scrumy.Data;
 using Scrumy.Models;
 using Scrumy.Models.AccountViewModels;
+using Scrumy.Models.MixedVM;
 using Scrumy.Services;
 
 namespace Scrumy.Controllers

@@ -5,11 +5,10 @@ $headerFont: 'Open Sans', sans-serif;
 //colours
 $bodyBackground: #FFFFFF;
 $navFootColor: #ececec; //Background for Footer and Navbar
-$lightFontColor: #FFFFFF /*#E2E6E9*/;
+$lightFontColor: #FFFFFF;
 $darkFontColor: #5d5e5e;
-$blueBackground: #489de8; /*#007BC2*/ /*#29A0D8*/ //Main Color for App elements
+$blueBackground: #489de8; //Main Color for App elements
 $borderGray: #666666;
-//$grayBackground: #636d75 /*#495259*/;
 
 //sizes
 $globalFontSize: 12px;
@@ -23,3 +22,6 @@ $smallRadius: 8px;
 //agileWallColors
 $doneGreenBorder: #4df24b;
 $doneGreenBody: #cfffce;
+
+$inCurrentSprintBorder: #85ade2 ;
+$inCurrentSprintBody: #e5f0ff;

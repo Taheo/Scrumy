@@ -127,5 +127,43 @@ namespace Scrumy.Controllers
         //        return View();
         //    }
         //}
+
+        public ActionResult MoveToCurrentSprint(Guid id)
+        {
+            var st = _context.SprintTasks.Find(id);
+
+            st.isDone = false;
+            st.isInCurrentSprint = true;
+
+            _context.SprintTasks.Update(st);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(AgileWall));
+        }
+
+        public ActionResult BackToBacklog(Guid id)
+        {
+            var st = _context.SprintTasks.Find(id);
+
+            st.isDone = false;
+            st.isInCurrentSprint = false;
+
+            _context.SprintTasks.Update(st);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(AgileWall));
+        }
+
+        public ActionResult SetAsDone(Guid id)
+        {
+            var st = _context.SprintTasks.Find(id);
+
+            st.isDone = true;
+            st.isInCurrentSprint = false;
+
+            _context.SprintTasks.Update(st);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(AgileWall));
+        }
     }
 }

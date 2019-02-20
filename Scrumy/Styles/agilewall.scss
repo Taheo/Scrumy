@@ -63,4 +63,9 @@
         border: 1px solid $doneGreenBorder;
         background: $doneGreenBody;
     }
+
+    .inCurrentSprint-element {
+        border: 1px solid $inCurrentSprintBorder;
+        background: $inCurrentSprintBody;
+    }
 }
