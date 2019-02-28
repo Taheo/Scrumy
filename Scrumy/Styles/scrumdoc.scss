@@ -1,6 +1,8 @@
 ﻿@import 'Variables.scss';
 @import 'Mixins.scss';
 
+
+
 .scrumdoc {
     .slide-text {
         position: absolute;
@@ -23,15 +25,25 @@
             }
         }
     }
+
+    .scrum-master-actions {
+        button.btn-action.margin-auto {
+            width: ($smallButtonWidth * 2);
+            margin-bottom: $buttonMarginBottom;
+        }
+    }
 }
 
 .techmat-container {
     text-align: center;
 }
 
-.note-container, .link-container 
-{
+.note-container, 
+.link-container {
     border-bottom: 1px solid $borderGray;
+    height: 30px;
+    line-height:30px;
+    
 }
 /* Slideshow container */
 .slideshow-container {

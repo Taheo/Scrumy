@@ -121,21 +121,21 @@
                             <div class="col-md-6">
                                 @foreach (var item in Model.TechMatSet)
                                 {
-                                <div class="link-container">
-                                    <a href="@item.Link">
-                                        @item.Link
-                                    </a>
-                                </div>
-                                
+                                    <div class="link-container">
+                                        <a href="@item.Link">
+                                            @item.Link
+                                        </a>
+                                    </div>
+
                                 }
                             </div>
                             <div class="col-md-6">
                                 @foreach (var item in Model.TechMatSet)
                                 {
-                                <div class="note-container">
-                                    <p>@item.Note</p>
-                                </div>
-                                
+                                    <div class="note-container">
+                                        <p>@item.Note</p>
+                                    </div>
+
                                 }
                             </div>
                         </div>
@@ -145,6 +145,20 @@
                 </div>
             </div>
         </div>
-
+        @if (User.IsInRole("Scrum Master"))
+        {
+            <div class="container scrum-master-actions">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <button class="btn-action margin-auto" type="button" data-toggle="modal" data-target="#addTeachingMaterialModal">Add Teaching Material</button>
+                        @await Html.PartialAsync("_addTeachingMaterialModal", Model.TeachingMaterial)
+                        <button class="btn-action margin-auto" type="button" data-toggle="modal" data-target="#addSlideModal">Add Slide</button>
+                        @await Html.PartialAsync("_addSlideModal", Model.Slide)
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </section>

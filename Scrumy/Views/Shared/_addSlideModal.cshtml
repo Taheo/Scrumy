@@ -1,4 +1,6 @@
-﻿<div class="modal fade" id="addSlideModal" role="dialog">
+﻿@model Scrumy.Models.SlidesViewModel.SlideAddVM
+
+<div class="modal fade" id="addSlideModal" role="dialog">
     <div class="modal-dialog">
         @using (@Html.BeginForm("Create", "Slide", null, FormMethod.Post))
         {

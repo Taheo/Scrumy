@@ -18,11 +18,18 @@
       text-decoration: none !important;
       outline: none; }
 
+.scrumdoc .scrum-master-actions button.btn-action.margin-auto {
+  width: 200px;
+  margin-bottom: 1em; }
+
 .techmat-container {
   text-align: center; }
 
-.note-container, .link-container {
-  border-bottom: 1px solid #666666; }
+.note-container,
+.link-container {
+  border-bottom: 1px solid #666666;
+  height: 30px;
+  line-height: 30px; }
 
 /* Slideshow container */
 .slideshow-container {
