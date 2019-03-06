@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Scrumy.Models.SprintTask>
+﻿@model Scrumy.Models.MixedVM.AgileWallVM
 
 @{
     ViewData["Title"] = "AgileWall";
@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-4 wall-col">
                 <h4>Backlog</h4>
-                @foreach (var item in Model)
+                @foreach (var item in Model.TaskList)
                 {
                     @if (item.isDone == false && item.isInCurrentSprint == false)
                     {
@@ -84,14 +84,13 @@
 
                 @if (User.IsInRole("Product Owner"))
                 {
-                    <div class="actions">
-                        <a asp-area="" asp-controller="SprintTask" asp-action="Create" class="btn-view margin-auto">Add Task</a>
-                    </div>
+                    <button type="button" class="btn-view margin-auto" data-toggle="modal" data-target="#addTaskModal">Create Task</button>
+                    @await Html.PartialAsync("_addTaskModal", Model.TaskToCreate)
                 }
             </div>
             <div class="col-md-4 wall-col">
                 <h4>ToDo in Current Sprint</h4>
-                @foreach (var item in Model)
+                @foreach (var item in Model.TaskList)
                 {
                     @if (item.isInCurrentSprint == true)
                     {
@@ -160,7 +159,7 @@
             </div>
             <div class="col-md-4 wall-col">
                 <h4>Done</h4>
-                @foreach (var item in Model)
+                @foreach (var item in Model.TaskList)
                 {
                     @if (item.isDone == true)
                     {

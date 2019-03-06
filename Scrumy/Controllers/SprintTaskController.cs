@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Scrumy.Data;
 using Scrumy.Models;
+using Scrumy.Models.MixedVM;
 using Scrumy.Models.SprintTaskViewModel;
 
 namespace Scrumy.Controllers
@@ -27,8 +28,13 @@ namespace Scrumy.Controllers
 
         public ActionResult AgileWall()
         {
-            var st = _context.SprintTasks.ToList();
-            return View(st);
+            //var st = _context.SprintTasks.ToList();
+            var model = new AgileWallVM
+            {
+                TaskList = _context.SprintTasks.ToList(),
+                TaskToCreate = new SprintTaskAddVM()
+            };
+            return View(model);
         }
 
         public ActionResult Stats()

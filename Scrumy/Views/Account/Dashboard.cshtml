@@ -119,14 +119,6 @@
                 <div class="dashboard-box">
                     <div class="action-btn-box">
                         <a asp-area="" asp-controller="Account" asp-action="ScrumDocEXT" class="btn-view">Scrum Doc</a>
-                        @if (User.IsInRole("Scrum Master"))
-                        {
-                            <div class="sm-actions">
-                                <a asp-controller="TeachingMaterial" asp-action="Create" class="action-pill">Add TechMat</a>
-                                <a asp-controller="Slide" asp-action="Create" class="action-pill">Add Slide</a>
-                            </div>        
-                        }
-
                     </div>
                     <div class="action-desc">
                         <p>
