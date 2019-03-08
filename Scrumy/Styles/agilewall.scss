@@ -68,4 +68,9 @@
         border: 1px solid $inCurrentSprintBorder;
         background: $inCurrentSprintBody;
     }
+
+    .willBeInNextSprint-element{
+        border: 1px solid $willBeInNextSprintBorder;
+        background: $willBeInNextSprintBody;
+    }
 }

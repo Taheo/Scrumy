@@ -14,6 +14,7 @@ namespace Scrumy.Models
         public string Desc { get; set; }
         public bool isDone { get; set; }
         public bool isInCurrentSprint { get; set; }
+        public bool willBeInNextSprint { get; set; }
 
         public SprintTask()
         {

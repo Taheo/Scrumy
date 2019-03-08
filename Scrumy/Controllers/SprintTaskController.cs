@@ -134,12 +134,13 @@ namespace Scrumy.Controllers
         //    }
         //}
 
-        public ActionResult MoveToCurrentSprint(Guid id)
+        public ActionResult MoveAsToDoInNextSprint(Guid id)
         {
             var st = _context.SprintTasks.Find(id);
 
             st.isDone = false;
-            st.isInCurrentSprint = true;
+            st.isInCurrentSprint = false;
+            st.willBeInNextSprint = true;
 
             _context.SprintTasks.Update(st);
             _context.SaveChanges();
@@ -153,6 +154,7 @@ namespace Scrumy.Controllers
 
             st.isDone = false;
             st.isInCurrentSprint = false;
+            st.willBeInNextSprint = false;
 
             _context.SprintTasks.Update(st);
             _context.SaveChanges();
@@ -166,6 +168,7 @@ namespace Scrumy.Controllers
 
             st.isDone = true;
             st.isInCurrentSprint = false;
+            st.willBeInNextSprint = false;
 
             _context.SprintTasks.Update(st);
             _context.SaveChanges();

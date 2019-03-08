@@ -48,3 +48,7 @@
 .agilewall .inCurrentSprint-element {
   border: 1px solid #85ade2;
   background: #e5f0ff; }
+
+.agilewall .willBeInNextSprint-element {
+  border: 1px solid #ffebce;
+  background: #fff5e5; }
