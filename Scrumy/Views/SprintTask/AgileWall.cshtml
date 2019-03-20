@@ -14,7 +14,7 @@
                 <h4>Backlog</h4>
                 @foreach (var item in Model.TaskList)
                 {
-                    @if (item.isDone == false && item.isInCurrentSprint == false)
+                    @if (item.isDone == false && item.isInCurrentSprint == false && item.willBeInNextSprint == false)
                     {
                         <div class="toDo-element element">
                             <p>
