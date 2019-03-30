@@ -12,12 +12,14 @@ namespace Scrumy.Models
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Desc { get; set; }
-        public bool isDone { get; set; }
-        public bool isInCurrentSprint { get; set; }
+        public bool isInBacklog { get; set; }
         public bool willBeInNextSprint { get; set; }
+        public bool isInCurrentSprint { get; set; }
+        public bool isDone { get; set; }
 
         public SprintTask()
         {
+            isInBacklog = true;
             Id = Guid.NewGuid();
         }
     }
