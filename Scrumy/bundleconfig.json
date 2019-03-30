@@ -15,7 +15,8 @@
       "wwwroot/css/dashboard.css",
       "wwwroot/css/agilewall.css",
       "wwwroot/css/scrumdoc.css",
-      "wwwroot/css/createtaskmanager.css"
+      "wwwroot/css/createtaskmanager.css",
+      "wwwroot/css/sprintPlanning.css"
     ]
   },
   {

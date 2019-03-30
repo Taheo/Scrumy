@@ -162,6 +162,20 @@ namespace Scrumy.Controllers
             return RedirectToAction(nameof(AgileWall));
         }
 
+        //public ActionResult ToDoInCurrentSprint(Guid id)
+        //{
+        //    var st = _context.SprintTasks.Find(id);
+
+        //    st.isDone = false;
+        //    st.isInCurrentSprint = true;
+        //    st.willBeInNextSprint = false;
+
+        //    _context.SprintTasks.Update(st);
+        //    _context.SaveChanges();
+
+        //    return RedirectToAction("Create", "SprintController", new { area = "" });
+        //}
+
         public ActionResult SetAsDone(Guid id)
         {
             var st = _context.SprintTasks.Find(id);

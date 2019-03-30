@@ -25,14 +25,42 @@ namespace Scrumy.Controllers
         public ActionResult Create()
         {
             //task list z repo
-            var model = _context.SprintTasks.Where(x => x.willBeInNextSprint == true).ToList();
+            var discuss = _context.SprintTasks.Where(x => x.willBeInNextSprint == true).ToList();
+            var tosprint = _context.SprintTasks.Where(x => x.isInCurrentSprint == true).ToList();
+
+            var model = discuss.Concat(tosprint);
+
             return View(model);
         }
 
-        [HttpPost]
-        public ActionResult Create(SprintPlanVM model)
+        //[HttpPost]
+        //public ActionResult Create(SprintPlanVM model)
+        //{
+        //    return View();
+        //}
+
+        public ActionResult WillNotBeInSprint(Guid id)
         {
-            return View();
+            var st = _context.SprintTasks.Find(id);
+
+            st.isInCurrentSprint = false;
+            st.willBeInNextSprint = true;
+
+            _context.SprintTasks.Update(st);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Create));
+        }
+
+        public ActionResult SetAsToDoInCurrentSprint(Guid id)
+        {
+            var st = _context.SprintTasks.Find(id);
+
+            st.isInCurrentSprint = true;
+            st.willBeInNextSprint = false;
+
+            _context.SprintTasks.Update(st);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Create));
         }
     }
 }

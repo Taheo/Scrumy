@@ -14,19 +14,6 @@
         }
     }
 
-    .element {
-        text-align: center;
-        margin-bottom: 16px;
-        width: 75%;
-        padding: $boxPadding;
-        border-radius: $radius;
-        @include margin-auto;
-
-        button {
-            @include margin-auto;
-        }
-    }
-
     .toDo-element {
         border: 1px solid $borderGray;
         position: relative;
@@ -45,32 +32,32 @@
                 font-size: 24px; /*move to em?*/
             }
         }
-    }
+    }    
+}
 
-    .move-buttons {
-        margin-top: 1em; /*watch*/
-        i {
-            font-size: 3em;
-            color: $blueBackground;
+.move-buttons {
+    margin-top: 1em; /*watch*/
+    i {
+        font-size: 3em;
+        color: $blueBackground;
 
-            &:hover {
-                color: lighten($blueBackground, 10%);
-            }
+        &:hover {
+            color: lighten($blueBackground, 10%);
         }
     }
+}
 
-    .done-element {
-        border: 1px solid $doneGreenBorder;
-        background: $doneGreenBody;
-    }
+.done-element {
+    border: 1px solid $doneGreenBorder;
+    background: $doneGreenBody;
+}
 
-    .inCurrentSprint-element {
-        border: 1px solid $inCurrentSprintBorder;
-        background: $inCurrentSprintBody;
-    }
+.inCurrentSprint-element {
+    border: 1px solid $inCurrentSprintBorder;
+    background: $inCurrentSprintBody;
+}
 
-    .willBeInNextSprint-element{
-        border: 1px solid $willBeInNextSprintBorder;
-        background: $willBeInNextSprintBody;
-    }
+.willBeInNextSprint-element {
+    border: 1px solid $willBeInNextSprintBorder;
+    background: $willBeInNextSprintBody;
 }

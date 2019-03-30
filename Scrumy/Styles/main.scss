@@ -81,6 +81,20 @@ section{
     box-shadow: none;
     border-color: lighten($blueBackground, 10%);
 }
+
+.element {
+    text-align: center;
+    margin-bottom: 16px;
+    width: 75%;
+    padding: $boxPadding;
+    border-radius: $radius;
+    @include margin-auto;
+
+    button {
+        @include margin-auto;
+    }
+}
+
 //Partials
 .action-container {
     ul.action-panel {
