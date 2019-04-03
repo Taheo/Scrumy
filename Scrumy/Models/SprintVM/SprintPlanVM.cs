@@ -7,7 +7,7 @@ namespace Scrumy.Models.SprintVM
 {
     public class SprintPlanVM
     {
-        public Sprint SprintToCreate { get; set; }
+        public SprintAddVM SprintToCreate { get; set; }
         public List<SprintTask> TaskToDiscuss { get; set; }
     }
 }

@@ -3,18 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Scrumy.Models
+namespace Scrumy.Models.SprintVM
 {
-    public class Sprint
+    public class SprintAddVM
     {
-        public Guid Id { get; set; }
         public DateTime Deadline { get; set; }
         public string SprintTarget { get; set; }
-        public bool isDone { get; set; }
-
-        public Sprint()
-        {
-            Id = Guid.NewGuid();
-        }
     }
 }

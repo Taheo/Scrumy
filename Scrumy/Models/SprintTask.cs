@@ -10,6 +10,7 @@ namespace Scrumy.Models
     {
         [Key]
         public Guid Id { get; set; }
+        public Guid SprintId { get; set; }
         public string Title { get; set; }
         public string Desc { get; set; }
         public bool isInBacklog { get; set; }

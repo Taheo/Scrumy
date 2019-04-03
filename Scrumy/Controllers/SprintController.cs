@@ -22,22 +22,42 @@ namespace Scrumy.Controllers
             return View();
         }
 
-        public ActionResult Create()
+        public ActionResult Discuss()
         {
             //task list z repo
             var discuss = _context.SprintTasks.Where(x => x.willBeInNextSprint == true).ToList();
             var tosprint = _context.SprintTasks.Where(x => x.isInCurrentSprint == true).ToList();
 
-            var model = discuss.Concat(tosprint);
+            var tasks = discuss.Concat(tosprint);
+
+            var model = new SprintPlanVM
+            {
+                TaskToDiscuss = tasks.ToList()
+            };
 
             return View(model);
         }
 
-        //[HttpPost]
-        //public ActionResult Create(SprintPlanVM model)
-        //{
-        //    return View();
-        //}
+        public ActionResult GenerateSprint(SprintPlanVM model)
+        {
+            model.TaskToDiscuss = _context.SprintTasks.Where(x => x.isInCurrentSprint == true).ToList();
+
+            var newSprint = new Sprint {
+                Deadline = model.SprintToCreate.Deadline,
+                SprintTarget = model.SprintToCreate.SprintTarget
+            };
+
+
+            foreach (var item in model.TaskToDiscuss)
+            {
+                item.SprintId = newSprint.Id;
+            }
+
+            _context.Add(newSprint);
+            _context.SaveChanges();
+
+            return RedirectToAction("AgileWall", "SprintTask");
+        }
 
         public ActionResult WillNotBeInSprint(Guid id)
         {
@@ -48,7 +68,7 @@ namespace Scrumy.Controllers
 
             _context.SprintTasks.Update(st);
             _context.SaveChanges();
-            return RedirectToAction(nameof(Create));
+            return RedirectToAction(nameof(Discuss));
         }
 
         public ActionResult SetAsToDoInCurrentSprint(Guid id)
@@ -60,7 +80,7 @@ namespace Scrumy.Controllers
 
             _context.SprintTasks.Update(st);
             _context.SaveChanges();
-            return RedirectToAction(nameof(Create));
+            return RedirectToAction(nameof(Discuss));
         }
     }
 }

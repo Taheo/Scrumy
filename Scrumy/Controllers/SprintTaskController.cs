@@ -139,6 +139,7 @@ namespace Scrumy.Controllers
             var st = _context.SprintTasks.Find(id);
 
             st.isDone = false;
+            st.isInBacklog = false;
             st.isInCurrentSprint = false;
             st.willBeInNextSprint = true;
 
@@ -153,6 +154,7 @@ namespace Scrumy.Controllers
             var st = _context.SprintTasks.Find(id);
 
             st.isDone = false;
+            st.isInBacklog = true;
             st.isInCurrentSprint = false;
             st.willBeInNextSprint = false;
 
@@ -183,6 +185,7 @@ namespace Scrumy.Controllers
             st.isDone = true;
             st.isInCurrentSprint = false;
             st.willBeInNextSprint = false;
+            st.isInBacklog = false;
 
             _context.SprintTasks.Update(st);
             _context.SaveChanges();
