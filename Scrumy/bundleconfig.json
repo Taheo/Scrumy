@@ -16,7 +16,8 @@
       "wwwroot/css/agilewall.css",
       "wwwroot/css/scrumdoc.css",
       "wwwroot/css/createtaskmanager.css",
-      "wwwroot/css/sprintPlanning.css"
+      "wwwroot/css/sprintStats.css",
+      "wwwroot/css/statsMenu.css"
     ]
   },
   {

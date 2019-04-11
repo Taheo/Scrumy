@@ -1,0 +1,15 @@
+.statsMenu h2 {
+  text-align: center; }
+
+.statsMenu .btn-view {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  margin-bottom: 1em; }
+
+.statsMenu .stats-describe {
+  background: #ececec;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  min-height: 200px; }

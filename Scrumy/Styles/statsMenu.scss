@@ -1,0 +1,22 @@
+﻿@import 'Variables.scss';
+@import 'Mixins.scss';
+
+.statsMenu {
+    h2 {
+        text-align: center;
+    }
+
+    .btn-view {
+        @include margin-auto;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    .stats-describe {
+        background: $navFootColor;
+        padding: $boxPadding;
+        border-radius: $radius;
+        margin-bottom: 16px;
+        min-height: 200px;
+    }
+}

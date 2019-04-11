@@ -83,15 +83,6 @@ namespace Scrumy.Controllers
             return RedirectToAction(nameof(Discuss));
         }
 
-        public ActionResult SprintStats()
-        {
-            var model = new SprintStatsVM
-            {
-                Sprints = _context.Sprints.ToList(),
-                Tasks = _context.SprintTasks.ToList()
-            };
-
-            return View(model);
-        }
+        
     }
 }

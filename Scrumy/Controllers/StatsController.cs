@@ -17,12 +17,12 @@ namespace Scrumy.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public ActionResult StatsMenu()
         {
             return View();
         }
 
-        public ActionResult TasksStats()
+        public ActionResult TaskStats()
         {
             //check if model is ok?
             var model = _context.SprintTasks.ToList();
@@ -39,5 +39,7 @@ namespace Scrumy.Controllers
 
             return View(model);
         }
+
+        
     }
 }
