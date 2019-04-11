@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Scrumy.Models.SprintVM
 {
-    public class SprintPlanVM
+    public class SprintStatsVM
     {
-        public SprintAddVM SprintToCreate { get; set; }
-        public List<SprintTask> TasksToDiscuss { get; set; }
+        public List<Sprint> Sprints { get; set; }
+        public List<SprintTask> Tasks { get; set; }
     }
 }

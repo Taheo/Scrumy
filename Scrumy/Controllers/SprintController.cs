@@ -32,7 +32,7 @@ namespace Scrumy.Controllers
 
             var model = new SprintPlanVM
             {
-                TaskToDiscuss = tasks.ToList()
+                TasksToDiscuss = tasks.ToList()
             };
 
             return View(model);
@@ -40,7 +40,7 @@ namespace Scrumy.Controllers
 
         public ActionResult GenerateSprint(SprintPlanVM model)
         {
-            model.TaskToDiscuss = _context.SprintTasks.Where(x => x.isInCurrentSprint == true).ToList();
+            model.TasksToDiscuss = _context.SprintTasks.Where(x => x.isInCurrentSprint == true).ToList();
 
             var newSprint = new Sprint {
                 Deadline = model.SprintToCreate.Deadline,
@@ -48,7 +48,7 @@ namespace Scrumy.Controllers
             };
 
 
-            foreach (var item in model.TaskToDiscuss)
+            foreach (var item in model.TasksToDiscuss)
             {
                 item.SprintId = newSprint.Id;
             }
@@ -81,6 +81,17 @@ namespace Scrumy.Controllers
             _context.SprintTasks.Update(st);
             _context.SaveChanges();
             return RedirectToAction(nameof(Discuss));
+        }
+
+        public ActionResult SprintStats()
+        {
+            var model = new SprintStatsVM
+            {
+                Sprints = _context.Sprints.ToList(),
+                Tasks = _context.SprintTasks.ToList()
+            };
+
+            return View(model);
         }
     }
 }

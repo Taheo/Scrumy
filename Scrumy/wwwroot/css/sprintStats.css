@@ -1,0 +1,7 @@
+.sprintStats h2 {
+  text-align: center; }
+
+.sprintStats .sprint-tabs {
+  text-align: center; }
+  .sprintStats .sprint-tabs .btn-action {
+    display: inline-block; }
