@@ -1,4 +1,7 @@
-﻿.sprintStats {
+﻿@import 'Variables.scss';
+@import 'Mixins.scss';
+
+.sprintStats {
     h2 {
         text-align: center;
     }
@@ -8,6 +11,14 @@
 
         .btn-action {
             display: inline-block;
+        }
+    }
+
+    .sprint-tasks-list {
+        .sprint-tasks-list-element {
+            border: 1px solid $borderGray;
+            border-radius: $radius;
+            padding: $boxPadding;
         }
     }
 }

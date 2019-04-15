@@ -82,7 +82,5 @@ namespace Scrumy.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(Discuss));
         }
-
-        
     }
 }

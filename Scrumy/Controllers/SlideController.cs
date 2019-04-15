@@ -52,7 +52,7 @@ namespace Scrumy.Controllers
                     _context.SaveChanges();
                 }
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("ScrumDocEXT", "Account");
             }
             catch
             {
@@ -76,7 +76,7 @@ namespace Scrumy.Controllers
                 _context.Slides.Update(model);
                 _context.SaveChanges();
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("ScrumDocEXT", "Account");
             }
             catch
             {
@@ -122,6 +122,7 @@ namespace Scrumy.Controllers
         {
             try
             {
+                //only for tests
                 // TODO: Add delete logic here
 
                 return RedirectToAction(nameof(Index));

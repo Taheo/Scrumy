@@ -11,7 +11,7 @@ namespace Scrumy.Models.MixedVM
     {
         public List<Slide> SlideSet { get; set; }
         public List<TeachingMaterial> TechMatSet { get; set; }
-        public TeachingMaterialVM TeachingMaterial { get; set; }
+        public TeachingMaterialAddVM TeachingMaterial { get; set; }
         public SlideAddVM Slide { get; set; }
     }
 }

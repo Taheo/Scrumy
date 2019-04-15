@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Scrumy.Models.TeachingMaterialsVM
 {
-    public class TeachingMaterialVM
+    public class TeachingMaterialAddVM
     {
         public string Link { get; set; }
         public string Note { get; set; }

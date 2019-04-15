@@ -39,7 +39,5 @@ namespace Scrumy.Controllers
 
             return View(model);
         }
-
-        
     }
 }

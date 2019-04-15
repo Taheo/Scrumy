@@ -41,7 +41,7 @@ namespace Scrumy.Controllers
         // POST: TeachingMaterial/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(TeachingMaterialVM model)
+        public ActionResult Create(TeachingMaterialAddVM model)
         {
             try
             {
@@ -53,7 +53,7 @@ namespace Scrumy.Controllers
                     _context.SaveChanges();
                 }
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("ScrumDocEXT", "Account");
             }
             catch
             {

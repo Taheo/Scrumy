@@ -18,15 +18,16 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">Panel Heading</div>
                         <div class="panel-body">
-                            <p>@item.Id</p>
-                            <p>@item.SprintTarget</p>
-                            <div>
+                            <p>Sprint Target: @item.SprintTarget</p>
+                            <div class="sprint-tasks-list">
                                 @foreach (var task in Model.Tasks)
                                 {
                                     if (task.SprintId == item.Id)
                                     {
-                                        <p>@task.Title</p>
-                                        <p>@task.Desc</p>
+                                        <div class="sprint-tasks-list-element">
+                                            <p>@task.Title</p>
+                                            <p>@task.Desc</p>
+                                        </div>
                                     }
                                 }
                             </div>
@@ -53,16 +54,17 @@
                 }
             }
         </div>
+
+    </div>
+    <div class="col-md-12">
+        <a asp-area="" asp-controller="Stats" asp-action="StatsMenu" class="btn-view">Stats Menu</a>
     </div>
 </section>
 
+
+
 <script>
-    function openTab(state) {
-        var i;
-        var x = document.getElementsByClassName("data");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        document.getElementById(state).style.display = "block";
-    }
+    $(function () {
+        openTab('ToDo');
+    });
 </script>

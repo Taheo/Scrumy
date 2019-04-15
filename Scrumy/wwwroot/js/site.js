@@ -25,4 +25,13 @@ function showSlides(n) {
     }
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
-} 
+}
+
+function openTab(state) {
+    var i;
+    var x = document.getElementsByClassName("data");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    document.getElementById(state).style.display = "block";
+}
