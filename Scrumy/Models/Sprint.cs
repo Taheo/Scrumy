@@ -8,7 +8,6 @@ namespace Scrumy.Models
     public class Sprint
     {
         public Guid Id { get; set; }
-        public DateTime Deadline { get; set; }
         public string SprintTarget { get; set; }
         public bool isDone { get; set; }
 

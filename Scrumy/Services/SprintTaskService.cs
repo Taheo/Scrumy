@@ -10,6 +10,11 @@ namespace Scrumy.Services
     public class SprintTaskService : ISprintTaskService
     {
         private readonly ApplicationDbContext _context;
+
+        public SprintTaskService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         public void Create(SprintTask sprinttask)
         {
             throw new NotImplementedException();
@@ -20,7 +25,7 @@ namespace Scrumy.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<SprintTask> GetAll()
+        public List<SprintTask> GetAll()
         {
             return _context.SprintTasks.ToList();
         }

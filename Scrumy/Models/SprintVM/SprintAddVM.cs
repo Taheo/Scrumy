@@ -7,7 +7,6 @@ namespace Scrumy.Models.SprintVM
 {
     public class SprintAddVM
     {
-        public DateTime Deadline { get; set; }
         public string SprintTarget { get; set; }
     }
 }

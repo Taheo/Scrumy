@@ -30,9 +30,6 @@
 
                             <button type="button" class="btn-action" data-toggle="modal" data-target="#@item.Id">Details</button>
                             <div class="move-buttons">
-                                @*<a asp-area="" asp-controller="SprintTask" asp-action="AddComment" asp-route-id="@item.Id" title="Add Comment">
-                                    <i class="fas fa-comment"></i>
-                                </a>*@
                                 <a asp-area="" asp-controller="SprintTask" asp-action="MoveAsToDoInNextSprint" asp-route-id="@item.Id" class="move-right" title="Set as ToDo in next Sprint">
                                     <i class="fas fa-arrow-circle-right"></i>
                                 </a>
@@ -65,7 +62,9 @@
                                                     This task has no description.
                                                 </p>
                                             }
-
+                                                <p>
+                                                    Created date: @Html.DisplayFor(modelItem => item.CreatedAt)
+                                                </p>
 
                                         </div>
                                         <div class="modal-footer">
@@ -102,12 +101,6 @@
                                 <a asp-area="" asp-controller="SprintTask" asp-action="BackToBacklog" asp-route-id="@item.Id" class="move-left" title="Back To Backlog">
                                     <i class="fas fa-arrow-circle-left"></i>
                                 </a>
-                                @*<a asp-area="" asp-controller="SprintTask" asp-action="AddComment" asp-route-id="@item.Id" title="Add Comment">
-                                    <i class="fas fa-comment"></i>
-                                </a>*@
-                                @*<a asp-area="" asp-controller="SprintTask" asp-action="SetAsDone" asp-route-id="@item.Id" class="move-right" title="Set as Done">
-                                    <i class="fas fa-check-circle"></i>
-                                </a>*@
 
                             </div>
                             <!-- Modal -->
@@ -172,9 +165,6 @@
 
                             <button type="button" class="btn-action" data-toggle="modal" data-target="#@item.Id">Details</button>
                             <div class="move-buttons">
-                                @*<a asp-area="" asp-controller="SprintTask" asp-action="AddComment" asp-route-id="@item.Id" title="Add Comment">
-                                    <i class="fas fa-comment"></i>
-                                </a>*@
                                 <a asp-area="" asp-controller="SprintTask" asp-action="SetAsDone" asp-route-id="@item.Id" class="move-right" title="Set as Done">
                                     <i class="fas fa-check-circle"></i>
                                 </a>

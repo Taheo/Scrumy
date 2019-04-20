@@ -15,14 +15,14 @@
                 {
                     <div class="element willBeInNextSprint-element">
                         <p>@item.Title</p>
-                        <button type="button" class="btn-action" data-toggle="modal" data-target="#@item.Id">Details</button>
+                        <button type="button" class="btn-action" data-toggle="modal" data-target="#details-@item.Id">Details</button>
                         <div class="move-buttons">
                             <a asp-area="" asp-controller="Sprint" asp-action="SetAsToDoInCurrentSprint" asp-route-id="@item.Id" class="move-right" title="Set as ToDo in next Sprint">
                                 <i class="fas fa-arrow-circle-right"></i>
                             </a>
                         </div>
 
-                        <div class="modal fade" id="@item.Id" role="dialog">
+                        <div class="modal fade" id="details-@item.Id" role="dialog">
                             <div class="modal-dialog">
 
                                 <!-- Modal content-->
@@ -123,28 +123,26 @@
             }
         </div>
     </div>
-    <div class="row">
-        @using (@Html.BeginForm("GenerateSprint", "Sprint", null, FormMethod.Post))
-        {
-            @Html.AntiForgeryToken()
+    @if (User.IsInRole("Product Owner"))
+    {
+        <div class="row">
+            @using (@Html.BeginForm("GenerateSprint", "Sprint", null, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
 
-            <form asp-action="GenerateSprint">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="SprintToCreate.Deadline" class="control-label"></label>
-                    <input asp-for="SprintToCreate.Deadline" class="form-control" />
-                    <span asp-validation-for="SprintToCreate.Deadline" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="SprintToCreate.SprintTarget" class="control-label"></label>
-                    <input asp-for="SprintToCreate.SprintTarget" class="form-control" />
-                    <span asp-validation-for="SprintToCreate.SprintTarget" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Generate Sprint" class="btn btn-default" />
-                </div>
-            </form>
+                <form asp-action="GenerateSprint">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="SprintToCreate.SprintTarget" class="control-label"></label>
+                        <input asp-for="SprintToCreate.SprintTarget" class="form-control" />
+                        <span asp-validation-for="SprintToCreate.SprintTarget" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Generate Sprint" class="btn btn-default" />
+                    </div>
+                </form>
 
-                }
+            }
         </div>
+    }
 </div>

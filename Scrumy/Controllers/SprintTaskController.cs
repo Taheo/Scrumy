@@ -8,16 +8,19 @@ using Scrumy.Data;
 using Scrumy.Models;
 using Scrumy.Models.MixedVM;
 using Scrumy.Models.SprintTaskViewModel;
+using Scrumy.Services;
 
 namespace Scrumy.Controllers
 {
     public class SprintTaskController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ISprintTaskService _sprintTaskService;
 
-        public SprintTaskController(ApplicationDbContext context)
+        public SprintTaskController(ApplicationDbContext context, ISprintTaskService sprintTaskService)
         {
             _context = context;
+            _sprintTaskService = sprintTaskService;
         }
         // GET: SprintTask
         public ActionResult Index()
@@ -31,11 +34,23 @@ namespace Scrumy.Controllers
             //var st = _context.SprintTasks.ToList();
             var model = new AgileWallVM
             {
-                TaskList = _context.SprintTasks.ToList(),
+                TaskList = _sprintTaskService.GetAll(),
                 TaskToCreate = new SprintTaskAddVM()
             };
             return View(model);
         }
+
+        //public void ClearToDoInCurrentSprintIfSprintNotExist()
+        //{
+        //    var tasks = _context.SprintTasks.Where(x => x.isInCurrentSprint == true && x.SprintId.Equals("00000000-0000-0000-0000-000000000000")).ToList();
+        //    foreach (var item in tasks)
+        //    {
+        //        item.isInCurrentSprint = false;
+        //        item.willBeInNextSprint = true;
+        //        _context.SprintTasks.Update(item);
+        //    }
+        //    _context.SaveChanges();
+        //}
 
         public ActionResult Stats()
         {
@@ -65,7 +80,7 @@ namespace Scrumy.Controllers
         {
             try
             {
-                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+
                 var newTask = new SprintTask {Title = model.Title, Desc = model.Desc };
                 // TODO: Add insert logic here
                 if (ModelState.IsValid)
@@ -80,31 +95,6 @@ namespace Scrumy.Controllers
                 return View();
             }
         }
-
-        // GET: SprintTask/Edit/5
-        public ActionResult Edit(Guid id)
-        {
-            return View();
-        }
-
-        // POST: SprintTask/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(SprintTask model)
-        {
-            try
-            {
-                _context.SprintTasks.Update(model);
-                _context.SaveChanges();
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-       
 
         // GET: SprintTask/Delete/5
         public ActionResult Delete(Guid id)

@@ -11,9 +11,10 @@ using System;
 namespace Scrumy.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190419084257_createdataddedtoSprintTask")]
+    partial class createdataddedtoSprintTask
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -198,6 +199,8 @@ namespace Scrumy.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime>("Deadline");
+
                     b.Property<string>("SprintTarget");
 
                     b.Property<bool>("isDone");
@@ -217,8 +220,6 @@ namespace Scrumy.Data.Migrations
                     b.Property<string>("Desc");
 
                     b.Property<Guid>("SprintId");
-
-                    b.Property<int>("StoryPointsValue");
 
                     b.Property<string>("Title");
 

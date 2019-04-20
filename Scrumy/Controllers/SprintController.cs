@@ -43,7 +43,6 @@ namespace Scrumy.Controllers
             model.TasksToDiscuss = _context.SprintTasks.Where(x => x.isInCurrentSprint == true).ToList();
 
             var newSprint = new Sprint {
-                Deadline = model.SprintToCreate.Deadline,
                 SprintTarget = model.SprintToCreate.SprintTarget
             };
 
@@ -81,6 +80,11 @@ namespace Scrumy.Controllers
             _context.SprintTasks.Update(st);
             _context.SaveChanges();
             return RedirectToAction(nameof(Discuss));
+        }
+
+        public ActionResult Retro()
+        {
+            return View();
         }
     }
 }
