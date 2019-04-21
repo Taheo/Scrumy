@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scrumy.Models.RetroVM;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace Scrumy.Models.MixedVM
     {
         public List<SprintTask> Tasks { get; set; }
         public List<Sprint> Sprints { get; set; }
-        //public List<Opinion> Feedback { get; set; }
+        public List<Opinion> Feedback { get; set; }
+        public OpinionAddVM OpinionToAdd { get; set; }
     }
 }
