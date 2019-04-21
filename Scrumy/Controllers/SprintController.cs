@@ -2,20 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Scrumy.Data;
 using Scrumy.Models;
+using Scrumy.Models.MixedVM;
+using Scrumy.Models.RetroVM;
 using Scrumy.Models.SprintVM;
+using Scrumy.Services;
 
 namespace Scrumy.Controllers
 {
     public class SprintController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ISprintTaskService _sprintTaskService;
+        private readonly ISprintService _sprintService;
 
-        public SprintController(ApplicationDbContext context)
+        public SprintController(
+            ApplicationDbContext context, 
+            ISprintTaskService sprintTaskService, 
+            ISprintService sprintService)
         {
             _context = context;
+            _sprintTaskService = sprintTaskService;
+            _sprintService = sprintService;
         }
         public ActionResult Index()
         {
@@ -84,7 +95,29 @@ namespace Scrumy.Controllers
 
         public ActionResult Retro()
         {
-            return View();
+            var model = new RetroVM {
+                Feedback = _context.Opinions.ToList(),
+                OpinionToAdd = new OpinionAddVM(),
+                Sprints = _sprintService.GetDoneSprints(),
+                Tasks = _sprintTaskService.GetDoneTasks(),
+            };
+
+            return View(model);
+        }
+
+        public ActionResult CreateOpinion(OpinionAddVM model)
+        {
+            var newOpinion = new Opinion(User.Identity.Name)
+            {
+                Comment = model.Comment,
+                OpinionType = model.OpinionType,
+                SprintId = model.SprintId
+            };
+
+            _context.Add(newOpinion);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Retro));
         }
     }
 }

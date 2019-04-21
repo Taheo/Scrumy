@@ -1,0 +1,49 @@
+﻿@model Scrumy.Models.MixedVM.RetroVM
+
+
+<section class="retro container">
+    <h2>Sprints Retrospective</h2>
+
+    <div class="row">
+        @foreach (var item in Model.Sprints)
+        {
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>
+                        Sprint Target: @item.SprintTarget
+                    </p>
+                    @foreach (var item2 in Model.Tasks)
+                    {
+                        if (item2.SprintId == item.Id)
+                        {
+                            <div class="element">
+                                <p>@item2.Title</p>
+                                <p>@item2.Desc</p>
+                            </div>
+                        }
+                    }
+
+                    <button type="button" class="btn-view margin-auto" data-toggle="modal" data-target="#addOpinionModal">Add Opinion</button>
+                    @await Html.PartialAsync("_addOpinionModal", Model.OpinionToAdd, new ViewDataDictionary(ViewData)
+                                 {
+                                     { "sprintid", item.Id }
+                                 })
+
+                    <div class="opinions-container">
+                        @foreach (var item3 in Model.Feedback)
+                        {
+                            if (item3.SprintId == item.Id)
+                            {
+                                <p>
+                                    @item3.Comment
+                                </p>
+                            }
+                        }
+                    </div>
+                </div>
+               
+            </div>
+        }
+    </div>
+    
+</section>

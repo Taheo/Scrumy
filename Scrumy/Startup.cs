@@ -36,6 +36,7 @@ namespace Scrumy
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<ISprintTaskService, SprintTaskService>();
+            services.AddTransient<ISprintService, SprintService>();
             
 
             services.AddMvc();

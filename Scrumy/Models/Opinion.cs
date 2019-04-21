@@ -8,6 +8,7 @@ namespace Scrumy.Models
     public class Opinion
     {
         public Guid Id { get; set; }
+        public Guid SprintId { get; set; }
         public bool OpinionType { get; set; }
         public string Comment { get; set; }
         public DateTime AddedAt { get; set; }
@@ -17,6 +18,11 @@ namespace Scrumy.Models
             Id = Guid.NewGuid();
             AddedAt = DateTime.Today;
             Author = currentUser;
+        }
+
+        public Opinion()
+        {
+
         }
     }
 }

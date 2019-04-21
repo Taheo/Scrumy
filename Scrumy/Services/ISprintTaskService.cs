@@ -9,6 +9,7 @@ namespace Scrumy.Services
     public interface ISprintTaskService
     {
         List<SprintTask> GetAll();
+        List<SprintTask> GetDoneTasks();
         //SprintTask GetSprintTaskByID(Guid id);
         //void Create(SprintTask sprinttask);
         //void Delete(Guid id);

@@ -15,24 +15,14 @@ namespace Scrumy.Services
         {
             _context = context;
         }
-        public void Create(SprintTask sprinttask)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<SprintTask> GetAll()
         {
             return _context.SprintTasks.ToList();
         }
 
-        public SprintTask GetSprintTaskByID(Guid id)
+        public List<SprintTask> GetDoneTasks()
         {
-            throw new NotImplementedException();
+            return _context.SprintTasks.Where(x => x.isDone == true).ToList();
         }
     }
 }

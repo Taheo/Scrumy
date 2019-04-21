@@ -1,0 +1,41 @@
+﻿@model Scrumy.Models.RetroVM.OpinionAddVM
+
+<div class="modal fade" id="addOpinionModal" role="dialog">
+    <div class="modal-dialog">
+        @using (@Html.BeginForm("CreateOpinion", "Sprint", null, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Task Creator</h4>
+                </div>
+                <div class="modal-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="OpinionType" /> @Html.DisplayNameFor(model => model.OpinionType)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Comment" class="control-label"></label>
+                        <input asp-for="Comment" class="form-control" />
+                        <span asp-validation-for="Comment" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SprintId" class="control-label"></label>
+                        <input asp-for="SprintId" class="form-control" value=" @ViewData["sprintid"]" readonly />
+                        <span asp-validation-for="SprintId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-action btn-modal" type="submit" name="button">Add</button>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
