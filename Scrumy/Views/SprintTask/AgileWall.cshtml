@@ -97,10 +97,10 @@
                             SP: @item.StoryPointsValue
                         </p>
                     }
-                    @if (item.whoIsWorkingOn != string.Empty)
+                    @if (item.whoIsWorkingOn != null)
                     {
                         <p>
-                            SP: @item.whoIsWorkingOn
+                            DEV: @item.whoIsWorkingOn
                         </p>
                     }
                     <button type="button" class="btn-action" data-toggle="modal" data-target="#@item.Id">Details</button>

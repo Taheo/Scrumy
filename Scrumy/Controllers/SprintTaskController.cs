@@ -31,26 +31,31 @@ namespace Scrumy.Controllers
 
         public ActionResult AgileWall()
         {
-            //var st = _context.SprintTasks.ToList();
+            ClearToDoInCurrentSprintIfSprintNotExist();
+            
             var model = new AgileWallVM
             {
                 TaskList = _sprintTaskService.GetAll(),
                 TaskToCreate = new SprintTaskAddVM()
             };
+
             return View(model);
         }
 
-        //public void ClearToDoInCurrentSprintIfSprintNotExist()
-        //{
-        //    var tasks = _context.SprintTasks.Where(x => x.isInCurrentSprint == true && x.SprintId.Equals("00000000-0000-0000-0000-000000000000")).ToList();
-        //    foreach (var item in tasks)
-        //    {
-        //        item.isInCurrentSprint = false;
-        //        item.willBeInNextSprint = true;
-        //        _context.SprintTasks.Update(item);
-        //    }
-        //    _context.SaveChanges();
-        //}
+        public void ClearToDoInCurrentSprintIfSprintNotExist()
+        {
+            var tasks = _context.SprintTasks.Where(
+                x => x.isInCurrentSprint == true && 
+                x.SprintId.ToString().Equals("00000000-0000-0000-0000-000000000000")).ToList();
+
+            foreach (var item in tasks)
+            {
+                item.isInCurrentSprint = false;
+                item.willBeInNextSprint = true;
+                _context.SprintTasks.Update(item);
+            }
+            _context.SaveChanges();
+        }
 
         public ActionResult Stats()
         {
