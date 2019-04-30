@@ -1,0 +1,36 @@
+﻿@model Scrumy.Models.SprintTask
+
+
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Task Details</h4>
+        </div>
+        <div class="modal-body">
+            <p>
+                Title: @Html.DisplayFor(modelItem => Model.Title)
+            </p>
+            @if (Model.Desc != null)
+            {
+                <p>
+                    Description: @Html.DisplayFor(modelItem => Model.Desc)
+                </p>
+            }
+            else
+            {
+                <p>
+                    This task has no description.
+                </p>
+            }
+            <p>
+                Created date: @Html.DisplayFor(modelItem => Model.CreatedAt)
+            </p>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>

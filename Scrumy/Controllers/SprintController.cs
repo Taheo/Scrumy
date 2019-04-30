@@ -119,5 +119,10 @@ namespace Scrumy.Controllers
 
             return RedirectToAction(nameof(Retro));
         }
+
+        public ActionResult Archive()
+        {
+            return View();
+        }
     }
 }

@@ -181,5 +181,13 @@ namespace Scrumy.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(AgileWall));
         }
+
+        public ActionResult SetAsCurrentlyWorkingOn(Guid id)
+        {
+            var st = _context.SprintTasks.Find(id);
+            st.whoIsWorkingOn = User.Identity.Name.ToString();
+
+            return RedirectToAction(nameof(AgileWall));
+        }
     }
 }

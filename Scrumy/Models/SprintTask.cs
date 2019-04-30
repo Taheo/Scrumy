@@ -17,6 +17,7 @@ namespace Scrumy.Models
         public bool willBeInNextSprint { get; set; }
         public bool isInCurrentSprint { get; set; }
         public bool isDone { get; set; }
+        public string whoIsWorkingOn { get; set; }
         public DateTime CreatedAt { get; set; }
 
         public int StoryPointsValue { get; set; }

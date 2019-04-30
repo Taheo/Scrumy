@@ -10,6 +10,7 @@ namespace Scrumy.Models.SprintTaskViewModel
     {
         [Required]
         public string Title { get; set; }
+        [Required]
         public string Desc { get; set; }
     }
 }
