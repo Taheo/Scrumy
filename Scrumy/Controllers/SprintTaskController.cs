@@ -194,5 +194,18 @@ namespace Scrumy.Controllers
 
             return RedirectToAction(nameof(AgileWall));
         }
+
+        [HttpPost]
+        public ActionResult AddStoryPointValue(SprintTask model)
+        {
+            var st = _context.SprintTasks.Find(model.Id);
+
+            st.StoryPointsValue = model.StoryPointsValue;
+
+            _context.SprintTasks.Update(st);
+            _context.SaveChanges();
+
+            return RedirectToAction("Discuss", "Sprint");
+        }
     }
 }

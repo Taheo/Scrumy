@@ -9,27 +9,23 @@
         {
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <p>
+                    <h3>
                         Sprint Target: @item.SprintTarget
-                    </p>
-                    @foreach (var item2 in Model.Tasks)
-                    {
-                        if (item2.SprintId == item.Id)
+                    </h3>
+
+                    <div class="col-md-6">
+                        @foreach (var item2 in Model.Tasks)
                         {
-                            <div class="element">
-                                <p>@item2.Title</p>
-                                <p>@item2.Desc</p>
-                            </div>
+                            if (item2.SprintId == item.Id)
+                            {
+                                <div class="element">
+                                    <p>@item2.Title</p>
+                                    <p>@item2.Desc</p>
+                                </div>
+                            }
                         }
-                    }
-
-                    <button type="button" class="btn-view margin-auto" data-toggle="modal" data-target="#addOpinionModal">Add Opinion</button>
-                    @await Html.PartialAsync("_addOpinionModal", Model.OpinionToAdd, new ViewDataDictionary(ViewData)
-                                 {
-                                     { "sprintid", item.Id }
-                                 })
-
-                    <div class="opinions-container">
+                    </div>
+                    <div class="col-md-6 opinions-container">
                         @foreach (var item3 in Model.Feedback)
                         {
                             if (item3.SprintId == item.Id)
@@ -40,10 +36,32 @@
                             }
                         }
                     </div>
+                    
+                    <div class="col-md-12">
+                        <button type="button" class="btn-view margin-auto" data-toggle="modal" data-target="#addOpinionModal">Add Opinion</button>
+                        @await Html.PartialAsync("_addOpinionModal", Model.OpinionToAdd, new ViewDataDictionary(ViewData)
+                                     {
+                                         { "sprintid", item.Id }
+                                     })
+                    </div>
+                    
+
                 </div>
-               
             </div>
         }
     </div>
-    
+
+
+    <div class="row">
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+            <div class="col-md-12">
+
+            </div>
+        </div>
+    </div>
+
+
 </section>
