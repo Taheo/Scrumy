@@ -1,0 +1,13 @@
+﻿@import 'Variables';
+@import 'Mixins.scss';
+
+.error-container {
+    padding: 5em;
+    margin-bottom: 2em;
+    text-align: center;
+    height:35vh;
+    .btn-view-large {
+        width:225px;
+        @include margin-auto;
+    }
+}

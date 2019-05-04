@@ -13,26 +13,6 @@
             text-align: center;
         }
     }
-
-    .toDo-element {
-        border: 1px solid $borderGray;
-        position: relative;
-
-        .delete-icon {
-            position: absolute;
-            top: -1px;
-            right: -1px;
-            color: $blueBackground;
-
-            &:hover {
-                color: lighten($blueBackground, 10%);
-            }
-
-            i {
-                font-size: 24px; /*move to em?*/
-            }
-        }
-    }    
 }
 
 .move-buttons {
@@ -46,22 +26,3 @@
         }
     }
 }
-
-.done-element {
-    border: 1px solid $doneGreenBorder;
-    background: $doneGreenBody;
-}
-
-.inCurrentSprint-element {
-    border: 1px solid $inCurrentSprintBorder;
-    background: $inCurrentSprintBody;
-}
-
-.willBeInNextSprint-element {
-    border: 1px solid $willBeInNextSprintBorder;
-    background: $willBeInNextSprintBody;
-}
-
-/*.presentation-element{
-    border: 1px solid;
-}*/

@@ -64,6 +64,17 @@ section{
     @include basicButton($blueBackground);
 }
 
+.btn-modal-submit {
+    background: $blueBackground;
+    font-size: 1.5em;
+    padding: $buttonPadding;
+    width: 200px;
+    border-radius: $smallRadius;
+    color: white;
+    @include basicButton($blueBackground);
+    @include margin-auto;
+}
+
 .container-full {
     width: 100%;
 }

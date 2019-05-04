@@ -1,95 +1,107 @@
-﻿@model IEnumerable<Scrumy.Models.SprintTask>
+﻿@model Scrumy.Models.MixedVM.TaskStatsVM
 
-@{
-    ViewData["Title"] = "TaskStats";
-}
 
-<h2>TaskStats</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SprintId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Desc)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.isInBacklog)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.willBeInNextSprint)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.isInCurrentSprint)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.isDone)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.whoIsWorkingOn)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CreatedAt)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.StoryPointsValue)
-                </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SprintId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Desc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.isInBacklog)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.willBeInNextSprint)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.isInCurrentSprint)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.isDone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.whoIsWorkingOn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StoryPointsValue)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<section class="container">
+    <h2>TaskStats</h2>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+    <div class="chart-container row">
+        <div class="col-md-10">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+</section>
+<script>
+
+   
+    var DeliveredPoints = @Html.Raw(Json.Serialize(ViewData["deliveredSP"]));
+
+    var estimatedTeamSpeed = @Model.EstimatedTeamSpeed;
+    var estimatedSPsum = @Model.EstimatedSPsum;
+    var sprintAmount = @Model.SprintAmount;
+
+    function CreateLabels(sprintAmount) {
+        var result = [];
+        for (var i = 0; i < sprintAmount + 1; i++) {
+            result.push(i);
+        }
+        return result;
+    }
+
+    function CalculateIdealBurning(SPsum, teamSpeed, sprintAmount) {
+        var result = [];
+        let diff = SPsum / teamSpeed;
+        result.push(SPsum);
+
+        for (var i = 0; i < sprintAmount+1; i++) {
+            result.push(SPsum - diff);
+            SPsum = SPsum - diff;
+        }
+
+        return result;
+
+    }
+
+    function CalculateRealBurning(donePoints, SPsum) {
+        var result = [];
+        result.push(SPsum);
+
+        for (var i = 0; i < donePoints.length+1; i++) {
+            result.push(SPsum - donePoints[i]);
+            SPsum = SPsum - donePoints[i];
+        }
+
+        return result;
+
+    }
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: CreateLabels(sprintAmount),
+            datasets: [{
+                data: CalculateIdealBurning(estimatedSPsum, estimatedTeamSpeed, sprintAmount),
+                label: "Ideal Burning",
+                borderColor: "#3e95cd",
+                fill: false
+            }, {
+                data: CalculateRealBurning(DeliveredPoints, estimatedSPsum),
+                label: "Real Burning",
+                borderColor: "#8e5ea2",
+                fill: false
+            }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Product Burnout Chart'
+            },
+            scales: {
+                yAxes: [{
+                    gridLines: {
+                        zeroLineWidth: 3,
+                        zeroLineColor: "#2C292E"
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Story Points'
+                    }
+                }],
+                xAxes: [{
+                    gridLines: {
+                        zeroLineWidth: 3,
+                        zeroLineColor: "#2C292E"
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Sprints'
+                    }
+                }]
+            }
+        }
+    });
+</script>

@@ -19,6 +19,11 @@ namespace Scrumy.Services
             return _context.Sprints.ToList();
         }
 
+        public Sprint GetCurrentSprint()
+        {
+            return _context.Sprints.Where(x => x.isDone == false).FirstOrDefault();
+        }
+
         public List<Sprint> GetDoneSprints()
         {
             return _context.Sprints.Where(x => x.isDone == true).ToList();

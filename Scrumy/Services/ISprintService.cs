@@ -10,5 +10,6 @@ namespace Scrumy.Services
     {
         List<Sprint> GetAllSprints();
         List<Sprint> GetDoneSprints();
+        Sprint GetCurrentSprint();
     }
 }

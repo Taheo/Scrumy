@@ -1,0 +1,19 @@
+﻿@import 'Variables';
+@import 'Mixins.scss';
+
+.retro {
+    a {
+        color: $darkFontColor;
+        text-decoration: none;
+    }
+
+    .element{
+        width:50%;
+    }
+
+    .opinion{
+        padding:$smallBoxPadding;
+        background:$opinionBackground;
+        border-radius:$radius;
+    }
+}
