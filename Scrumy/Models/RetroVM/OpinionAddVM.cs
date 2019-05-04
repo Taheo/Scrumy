@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Scrumy.Models.RetroVM
 {
@@ -11,8 +9,11 @@ namespace Scrumy.Models.RetroVM
     {
         [DisplayName("Is opinion Positive?")]
         public bool OpinionType { get; set; }
+        [DisplayName("Insert your opinion")]
         public string Comment { get; set; }
-        [DisplayName("Sprint identifier which you are editing")]
+        [DisplayName("Which Sprint you want to get feedback?")]
         public Guid SprintId { get; set; }
+        public List<SelectListItem> Sprints { get; set; }
+
     }
 }

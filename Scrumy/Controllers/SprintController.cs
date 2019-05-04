@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Scrumy.Data;
 using Scrumy.Models;
 using Scrumy.Models.MixedVM;
@@ -110,9 +111,19 @@ namespace Scrumy.Controllers
 
         public ActionResult Retro()
         {
+            var sprintList = _sprintService.GetDoneSprints();
+            var ListItemsFromSprints = new List<SelectListItem>();
+
+            foreach (var item in sprintList)
+            {
+                ListItemsFromSprints.Add(new SelectListItem { Text = item.SprintTarget, Value = item.Id.ToString() });
+            }
+
             var model = new RetroVM {
                 Feedback = _context.Opinions.ToList(),
-                OpinionToAdd = new OpinionAddVM(),
+                OpinionToAdd = new OpinionAddVM() {
+                    Sprints = ListItemsFromSprints
+                },
                 Sprints = _sprintService.GetDoneSprints(),
                 Tasks = _sprintTaskService.GetDoneTasks(),
             };

@@ -54,11 +54,11 @@
                     @await Html.PartialAsync("_taskDetailsModal", item)
                 </div>
 
-                <button type="button" class="btn-action" data-toggle="modal" data-target="#addStoryPointsValueModal">Add SP Value</button>
+                @*<button type="button" class="btn-action" data-toggle="modal" data-target="#addStoryPointsValueModal">Add SP Value</button>
                 @await Html.PartialAsync("_addStoryPointsValueModal", item, new ViewDataDictionary(ViewData)
                                  {
                                      { "sprinttaskid", item.Id }
-                                 })
+                                 })*@
             </div>
                 }
             }
