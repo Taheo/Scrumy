@@ -1,0 +1,13 @@
+/*$presentationBorder:;
+$presentationBody:;*/
+/*$presentationBorder:;
+$presentationBody:;*/
+.error-container {
+  padding: 5em;
+  margin-bottom: 2em;
+  text-align: center;
+  height: 35vh; }
+  .error-container .btn-view-large {
+    width: 225px;
+    margin-left: auto;
+    margin-right: auto; }

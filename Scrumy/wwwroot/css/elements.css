@@ -1,0 +1,29 @@
+/*$presentationBorder:;
+$presentationBody:;*/
+/*$presentationBorder:;
+$presentationBody:;*/
+.done-element {
+  border: 1px solid #4df24b;
+  background: #cfffce; }
+
+.inCurrentSprint-element {
+  border: 1px solid #85ade2;
+  background: #e5f0ff; }
+
+.willBeInNextSprint-element {
+  border: 1px solid #ffddad;
+  background: #fff5e5; }
+
+.toDo-element {
+  border: 1px solid #666666;
+  position: relative; }
+  .toDo-element .delete-icon {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    color: #489de8; }
+    .toDo-element .delete-icon:hover {
+      color: #75b5ee; }
+    .toDo-element .delete-icon i {
+      font-size: 24px;
+      /*move to em?*/ }

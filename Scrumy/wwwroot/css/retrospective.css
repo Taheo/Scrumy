@@ -1,0 +1,15 @@
+/*$presentationBorder:;
+$presentationBody:;*/
+/*$presentationBorder:;
+$presentationBody:;*/
+.retro a {
+  color: #5d5e5e;
+  text-decoration: none; }
+
+.retro .element {
+  width: 50%; }
+
+.retro .opinion {
+  padding: 8px;
+  background: #e3e9f2;
+  border-radius: 12px; }

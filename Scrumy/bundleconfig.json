@@ -7,6 +7,8 @@
     "inputFiles": [
       "wwwroot/css/site.css",
       "wwwroot/css/main.css",
+      "wwwroot/css/projectSettingsError.css",
+      "wwwroot/css/elements.css",
       "wwwroot/css/footer.css",
       "wwwroot/css/navbar.css",
       "wwwroot/css/homepage.css",
@@ -17,7 +19,8 @@
       "wwwroot/css/scrumdoc.css",
       "wwwroot/css/createtaskmanager.css",
       "wwwroot/css/sprintStats.css",
-      "wwwroot/css/statsMenu.css"
+      "wwwroot/css/statsMenu.css",
+      "wwwroot/css/retrospective.css"
     ]
   },
   {

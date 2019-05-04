@@ -1,3 +1,7 @@
+/*$presentationBorder:;
+$presentationBody:;*/
+/*$presentationBorder:;
+$presentationBody:;*/
 body {
   background-color: #FFFFFF !important;
   font-size: 12px;
@@ -68,6 +72,27 @@ section {
     background-color: #75b5ee;
     color: white; }
   .btn-action:focus {
+    text-decoration: none;
+    background-color: #1c85e1;
+    color: white; }
+
+.btn-modal-submit {
+  background: #489de8;
+  font-size: 1.5em;
+  padding: 8px;
+  width: 200px;
+  border-radius: 8px;
+  color: white;
+  border: 1px solid #3191e5;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; }
+  .btn-modal-submit:hover {
+    text-decoration: none;
+    background-color: #75b5ee;
+    color: white; }
+  .btn-modal-submit:focus {
     text-decoration: none;
     background-color: #1c85e1;
     color: white; }

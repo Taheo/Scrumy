@@ -1,3 +1,7 @@
+/*$presentationBorder:;
+$presentationBody:;*/
+/*$presentationBorder:;
+$presentationBody:;*/
 .agilewall h2 {
   text-align: center; }
 
@@ -5,20 +9,6 @@
   border-top: 1px solid #666666; }
   .agilewall .wall-col h4 {
     text-align: center; }
-
-.agilewall .toDo-element {
-  border: 1px solid #666666;
-  position: relative; }
-  .agilewall .toDo-element .delete-icon {
-    position: absolute;
-    top: -1px;
-    right: -1px;
-    color: #489de8; }
-    .agilewall .toDo-element .delete-icon:hover {
-      color: #75b5ee; }
-    .agilewall .toDo-element .delete-icon i {
-      font-size: 24px;
-      /*move to em?*/ }
 
 .move-buttons {
   margin-top: 1em;
@@ -28,15 +18,3 @@
     color: #489de8; }
     .move-buttons i:hover {
       color: #75b5ee; }
-
-.done-element {
-  border: 1px solid #4df24b;
-  background: #cfffce; }
-
-.inCurrentSprint-element {
-  border: 1px solid #85ade2;
-  background: #e5f0ff; }
-
-.willBeInNextSprint-element {
-  border: 1px solid #ffddad;
-  background: #fff5e5; }
