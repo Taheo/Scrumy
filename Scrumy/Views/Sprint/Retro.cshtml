@@ -17,27 +17,45 @@
                     </div>
                     <div id="collapse1-@item.Id" class="panel-collapse collapse">
                         <div class="panel-body">
-                            @foreach (var item2 in Model.Tasks)
-                            {
-                                if (item2.SprintId == item.Id)
-                                {
-                                    <div class="element toDo-element">
-                                        <p>@item2.Title</p>
-                                        <p>@item2.Desc</p>
-                                    </div>
-                                }
-                            }
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @foreach (var item2 in Model.Tasks)
+                                    {
+                                        if (item2.SprintId == item.Id)
+                                        {
+                                            <div class="element toDo-element">
+                                                <p>@item2.Title</p>
+                                                <p>@item2.Desc</p>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                                <div class="col-md-6">
+                                    @foreach (var item3 in Model.Feedback)
+                                    {
+                                        if (item3.SprintId == item.Id)
+                                        {
+                                            if (item3.OpinionType == true)
+                                            {
+                                                <div class="opinion opinion-positive">
+                                                    <p>@item3.Comment</p>
+                                                    <p>@item3.Author</p>
+                                                    <p>@item3.AddedAt.ToLongDateString()</p>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="opinion opinion-negative">
+                                                    <p>@item3.Comment</p>
+                                                    <p>@item3.Author</p>
+                                                    <p>@item3.AddedAt.ToLongDateString()</p>
+                                                </div>
+                                            }
 
-
-                            @foreach (var item3 in Model.Feedback)
-                            {
-                                if (item3.SprintId == item.Id)
-                                {
-                                    <p class="opinion">
-                                        @item3.Comment
-                                    </p>
-                                }
-                            }
+                                        }
+                                    }
+                                </div>
+                            </div>
                         </div>
                         
                     </div>

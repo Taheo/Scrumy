@@ -11,5 +11,11 @@ $presentationBody:;*/
 
 .retro .opinion {
   padding: 8px;
-  background: #e3e9f2;
-  border-radius: 12px; }
+  border-radius: 12px;
+  margin-bottom: 1em; }
+
+.retro .opinion-positive {
+  background: #75d679; }
+
+.retro .opinion-negative {
+  background: #ef8686; }

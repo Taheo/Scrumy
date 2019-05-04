@@ -7,13 +7,21 @@
         text-decoration: none;
     }
 
-    .element{
-        width:50%;
+    .element {
+        width: 50%;
     }
 
-    .opinion{
-        padding:$smallBoxPadding;
-        background:$opinionBackground;
-        border-radius:$radius;
+    .opinion {
+        padding: $smallBoxPadding;
+        border-radius: $radius;
+        margin-bottom: 1em;
+    }
+
+    .opinion-positive {
+        background: #75d679;
+    }
+
+    .opinion-negative {
+        background: #ef8686;
     }
 }
