@@ -19,7 +19,7 @@
                         </a>
                     </h4>
                 </div>
-                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel-body">
                         <div class="slideshow-container">
 
@@ -42,43 +42,6 @@
                                         </div>*@
                                     @*<div class="text">Caption Text</div>*@
                                 </div>
-
-                                //Modal
-                                @*<div class="modal fade" id="EditkModal" role="dialog">
-                                        <div class="modal-dialog">
-                                            @using (@Html.BeginForm("Edit", "Slide", null, FormMethod.Post))
-                                            {
-                                                @Html.AntiForgeryToken()
-
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title">Edit Slide</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                                        <div class="form-group">
-                                                            <label asp-for="Number" class="control-label"></label>
-                                                            <input asp-for="@item.Number" class="form-control" required />
-                                                            <span asp-validation-for="@item.Number" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label asp-for="@item.Content" class="control-label"></label>
-                                                            <input asp-for="@item.Content" class="form-control" />
-                                                            <span asp-validation-for="@item.Content" class="text-danger"></span>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="modal-footer">
-
-                                                        <button class="btn-action btn-modal" type="submit" name="button">Add</button>
-                                                    </div>
-                                                </div>
-                                            }
-                                        </div>
-
-                                    </div>*@
-                                //koniecmodala
 
                             }
 

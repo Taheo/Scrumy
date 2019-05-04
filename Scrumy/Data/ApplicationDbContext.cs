@@ -36,5 +36,6 @@ namespace Scrumy.Data
         public DbSet<Slide> Slides { get; set; }
         public DbSet<TeachingMaterial> TeachingMaterials { get; set; }
         public DbSet<Opinion> Opinions { get; set; }
+        public DbSet<ProjectSettings> ProjectSettings { get; set; }
     }
 }

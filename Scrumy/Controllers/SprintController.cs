@@ -93,6 +93,21 @@ namespace Scrumy.Controllers
             return RedirectToAction(nameof(Discuss));
         }
 
+        public void CheckIfSprintIsDone()
+        {
+            var currentSprint = _sprintService.GetCurrentSprint();
+            var currentSprintTasks = _sprintTaskService.GetAll().Where(x => x.SprintId == currentSprint.Id);
+           
+            if (currentSprintTasks.All(z => z.isDone == true) == true)
+            {
+                currentSprint.isDone = true;
+
+                _context.Sprints.Update(currentSprint);
+                _context.SaveChanges();
+            }
+            //jeszcze nie wywoływane
+        }
+
         public ActionResult Retro()
         {
             var model = new RetroVM {

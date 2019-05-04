@@ -31,15 +31,22 @@ namespace Scrumy.Controllers
 
         public ActionResult AgileWall()
         {
-            ClearToDoInCurrentSprintIfSprintNotExist();
-            
-            var model = new AgileWallVM
+            if (_context.ProjectSettings.Count() == 0)
             {
-                TaskList = _sprintTaskService.GetAll(),
-                TaskToCreate = new SprintTaskAddVM()
-            };
+                return RedirectToAction("RenderErrorIfSettingsAreEmpty", "ProjectSettings");
+            }
+            else
+            {
+                ClearToDoInCurrentSprintIfSprintNotExist();
 
-            return View(model);
+                var model = new AgileWallVM
+                {
+                    TaskList = _sprintTaskService.GetAll(),
+                    TaskToCreate = new SprintTaskAddVM()
+                };
+
+                return View(model);
+            }
         }
 
         public void ClearToDoInCurrentSprintIfSprintNotExist()
@@ -137,6 +144,8 @@ namespace Scrumy.Controllers
             st.isInBacklog = false;
             st.isInCurrentSprint = false;
             st.willBeInNextSprint = true;
+            st.SprintId = Guid.Empty;
+            st.StoryPointsValue = 0;
 
             _context.SprintTasks.Update(st);
             _context.SaveChanges();

@@ -1,0 +1,30 @@
+﻿@model Scrumy.Models.ProjectSettingsVM.ProjectSettingsAddVM
+@inject UserManager<ApplicationUser> UserManager
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    @if (User.IsInRole("Product Owner"))
+    {
+    <div class="container">
+        <div class="error-container">
+            <h2>
+                Fill Project Settings to launch Scrumy!
+            </h2>
+            <button type="button" class=" btn-view btn-view-large" data-toggle="modal" data-target="#addProjectSettingsModal">Add Project Settings</button>
+            @await Html.PartialAsync("_addProjectSettingsModal", Model)
+        </div>
+    </div>
+        
+    }
+    else
+    {
+        <div class="container">
+            <div>
+                <h2>
+                    Ask Product Owner if he will fill the Project Settings
+                </h2>
+            </div>
+        </div>
+    }
+}
