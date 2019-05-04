@@ -97,6 +97,24 @@ section {
     background-color: #1c85e1;
     color: white; }
 
+.btn-modal-close {
+  background: #ececec;
+  font-size: 1.4em;
+  padding: 8px;
+  width: 150px;
+  border-radius: 8px;
+  color: #489de8;
+  border: 1px solid #dfdfdf;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; }
+  .btn-modal-close:hover {
+    text-decoration: none; }
+  .btn-modal-close:focus {
+    text-decoration: none;
+    background-color: lightgray; }
+
 .container-full {
   width: 100%; }
 

@@ -12,6 +12,7 @@ namespace Scrumy.Models.RetroVM
         [DisplayName("Is opinion Positive?")]
         public bool OpinionType { get; set; }
         public string Comment { get; set; }
+        [DisplayName("Sprint identifier which you are editing")]
         public Guid SprintId { get; set; }
     }
 }

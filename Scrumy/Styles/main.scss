@@ -75,6 +75,28 @@ section{
     @include margin-auto;
 }
 
+.btn-modal-close {
+    background: $navFootColor;
+    font-size: 1.4em;
+    padding: $buttonPadding;
+    width: 150px;
+    border-radius: $smallRadius;
+    color: $blueBackground;
+    border: 1px solid darken($navFootColor, 5%);
+    display: block;
+    text-align: center;
+    @include margin-auto;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:focus {
+        text-decoration: none;
+        background-color: darken($navFootColor, 10%);
+    }
+}
+
 .container-full {
     width: 100%;
 }
