@@ -9,5 +9,6 @@ namespace Scrumy.Models.MixedVM
     {
         public List<SprintTask> Tasks { get; set; }
         public List<Sprint> Sprints { get; set; }
+        public int SprintAmount { get; set; }
     }
 }

@@ -133,7 +133,26 @@ namespace Scrumy.Controllers
 
         public ActionResult Archive()
         {
-            return View();
+            var settings = _context.ProjectSettings.FirstOrDefault();
+            var deliveredSP = new List<int>();
+            var orderedSprints = _sprintService.GetDoneSprints().OrderBy(v => v.GenerationDate);
+
+            foreach (var item in orderedSprints)
+            {
+                deliveredSP.Add(_sprintTaskService.GetDoneTasks().Where(x => x.SprintId == item.Id && x.whoIsWorkingOn == User.Identity.Name).Sum(z => z.StoryPointsValue));
+            }
+
+            var convertedSP = deliveredSP;
+
+            var model = new ArchiveVM()
+            {
+                Sprints = _sprintService.GetDoneSprints(),
+                Tasks = _sprintTaskService.GetDoneTasks(),
+                SprintAmount = settings.SprintAmount
+            };
+
+            ViewData["SPperSprint"] = convertedSP;
+            return View(model);
         }
     }
 }

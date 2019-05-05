@@ -1,0 +1,92 @@
+﻿@model Scrumy.Models.MixedVM.ArchiveVM
+@inject UserManager<ApplicationUser> UserManager
+
+<section class="sprintArchive container">
+    <h2>Sprints Archive</h2>
+
+    <div class="row">
+        @foreach (var item in Model.Sprints)
+        {
+
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse1-@item.Id">Sprint Target: @item.SprintTarget</a>
+                        </h4>
+                    </div>
+                    <div id="collapse1-@item.Id" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>Sum of your SP in this Sprint: @Model.Tasks.Where(x => x.SprintId == item.Id && x.whoIsWorkingOn == User.Identity.Name).Sum(z => z.StoryPointsValue)</p>
+                                    @foreach (var item2 in Model.Tasks)
+                                    {
+                                        if (item2.SprintId == item.Id)
+                                        {
+                                            <div class="element toDo-element">
+                                                <p>Title: @item2.Title</p>
+                                                <p>Description: @item2.Desc</p>
+                                                <p>Creation Time: @item2.CreatedAt</p>
+                                                <p>Story Points Value: @item2.StoryPointsValue</p>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+        @if (User.IsInRole("Developer"))
+        {
+            <div class="row">
+                <div class="col-md-10">
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+        }
+
+
+
+    </div>
+</section>
+<script>
+
+    var sprintAmount = @Model.SprintAmount
+    var  data = @Html.Raw(Json.Serialize(ViewData["SPperSprint"]))
+
+    function CreateLabels(sprintAmount) {
+        var result = [];
+        for (var i = 0; i < sprintAmount; i++) {
+            result.push(i+1);
+        }
+        return result;
+    }
+
+    new Chart(document.getElementById("barChart"), {
+        type: 'bar',
+        data: {
+            labels: CreateLabels(sprintAmount),
+            datasets: [
+                {
+                    label: "SP Sum",
+                    backgroundColor: "#489de8",
+                    data: data
+                }
+            ]
+        },
+        options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: 'Story Points done by You per Sprint'
+            }
+        }
+    });
+</script>
