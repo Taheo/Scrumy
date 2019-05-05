@@ -85,9 +85,14 @@ namespace Scrumy.Controllers
         }
 
         // GET: TeachingMaterial/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            var techMat = _context.TeachingMaterials.Find(id);
+
+            _context.TeachingMaterials.Remove(techMat);
+            _context.SaveChanges();
+
+            return RedirectToAction("ScrumDocEXT", "Account");
         }
 
         // POST: TeachingMaterial/Delete/5

@@ -98,7 +98,6 @@ namespace Scrumy.Controllers
                 _context.Sprints.Update(currentSprint);
                 _context.SaveChanges();
             }
-            //jeszcze nie wywoływane
         }
 
         public ActionResult Stats()

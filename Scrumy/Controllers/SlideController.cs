@@ -110,9 +110,14 @@ namespace Scrumy.Controllers
         //}
 
         // GET: Slide/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            var slide = _context.Slides.Find(id);
+
+            _context.Slides.Remove(slide);
+            _context.SaveChanges();
+
+            return RedirectToAction("ScrumDocEXT", "Account");
         }
 
         // POST: Slide/Delete/5

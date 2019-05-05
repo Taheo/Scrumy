@@ -44,7 +44,8 @@ $presentationBody:;*/
 
 .note-container p {
   font-size: inherit !important;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  display: inline-block; }
 
 .note-container:last-of-type {
   margin-bottom: 1em; }
@@ -59,6 +60,8 @@ $presentationBody:;*/
 /* Hide the images by default */
 .mySlides {
   display: none; }
+  .mySlides .delete-icon:first-of-type {
+    font-size: 2em; }
 
 /* Next & previous buttons */
 .prev, .next {

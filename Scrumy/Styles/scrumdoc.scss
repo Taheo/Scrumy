@@ -32,6 +32,8 @@
             margin-bottom: $buttonMarginBottom;
         }
     }
+
+    
 }
 
 .techmat-container {
@@ -60,6 +62,7 @@
     p {
         font-size: inherit !important;
         margin-bottom:0;
+        display:inline-block;
     }
     &:last-of-type{
         margin-bottom:1em;
@@ -77,6 +80,10 @@
 /* Hide the images by default */
 .mySlides {
     display: none;
+
+    .delete-icon:first-of-type {
+        font-size: 2em;
+    }
 }
 
 /* Next & previous buttons */
