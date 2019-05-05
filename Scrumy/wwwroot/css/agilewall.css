@@ -10,6 +10,9 @@ $presentationBody:;*/
   .agilewall .wall-col h4 {
     text-align: center; }
 
+.agilewall .btn-view.btn-view-large {
+  width: 250px; }
+
 .move-buttons {
   margin-top: 1em;
   /*watch*/ }

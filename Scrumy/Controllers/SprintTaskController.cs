@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Scrumy.Data;
 using Scrumy.Models;
 using Scrumy.Models.MixedVM;
@@ -31,6 +32,8 @@ namespace Scrumy.Controllers
 
         public ActionResult AgileWall()
         {
+            
+
             if (_context.ProjectSettings.Count() == 0)
             {
                 return RedirectToAction("RenderErrorIfSettingsAreEmpty", "ProjectSettings");
@@ -39,10 +42,22 @@ namespace Scrumy.Controllers
             {
                 ClearToDoInCurrentSprintIfSprintNotExist();
 
+                var ListItemsFromTasks = new List<SelectListItem>();
+                var TasksList = _sprintTaskService.GetTasksInCurrentSprintWithoutSPValue();
+
+                foreach (var item in TasksList)
+                {
+                    ListItemsFromTasks.Add(new SelectListItem { Text = item.Title, Value = item.Id.ToString() });
+                }
+
                 var model = new AgileWallVM
                 {
                     TaskList = _sprintTaskService.GetAll(),
-                    TaskToCreate = new SprintTaskAddVM()
+                    TaskToCreate = new SprintTaskAddVM(),
+                    StoryPointsValueToAdd = new SprintTaskAddStoryPointsVM()
+                    {
+                         TasksToSelect = ListItemsFromTasks
+                    }
                 };
 
                 return View(model);
@@ -201,20 +216,23 @@ namespace Scrumy.Controllers
             var st = _context.SprintTasks.Find(id);
             st.whoIsWorkingOn = User.Identity.Name.ToString();
 
+            _context.SprintTasks.Update(st);
+            _context.SaveChanges();
+
             return RedirectToAction(nameof(AgileWall));
         }
 
         [HttpPost]
-        public ActionResult AddStoryPointValue(SprintTask model)
+        public ActionResult AddStoryPointValue(SprintTaskAddStoryPointsVM model)
         {
-            var st = _context.SprintTasks.Find(model.Id);
+            var st = _context.SprintTasks.Find(model.SprintTaskId);
 
             st.StoryPointsValue = model.StoryPointsValue;
 
             _context.SprintTasks.Update(st);
             _context.SaveChanges();
 
-            return RedirectToAction("Discuss", "Sprint");
+            return RedirectToAction(nameof(AgileWall));
         }
     }
 }

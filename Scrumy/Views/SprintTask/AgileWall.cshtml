@@ -87,56 +87,66 @@
                 {
                     @if (item.isInCurrentSprint == true)
                     {
-                <div class="inCurrentSprint-element element">
-                    <p>
-                        Title: @Html.DisplayFor(modelItem => item.Title)
-                    </p>
-                    @if (item.StoryPointsValue != 0)
-                    {
-                        <p>
-                            SP: @item.StoryPointsValue
-                        </p>
-                    }
-                    else
-                    {
-                        <p>
-                            <i class="fas fa-exclamation-circle"></i> This task has no Story Point Value
-                        </p>
-                        
+                        <div class="inCurrentSprint-element element">
+                            <p>
+                                Title: @Html.DisplayFor(modelItem => item.Title)
+                            </p>
+                            @if (item.StoryPointsValue != 0)
+                            {
+                                <p>
+                                    SP: @item.StoryPointsValue
+                                </p>
+                            }
+                            else
+                            {
+                                <p>
+                                    <i class="fas fa-exclamation-circle"></i> This task has no Story Point Value
+                                </p>
+
+                            }
+
+                            @if (item.whoIsWorkingOn != null)
+                            {
+                                <p>
+                                    DEV: @item.whoIsWorkingOn
+                                </p>
+                            }
+                            <button type="button" class="btn-action" data-toggle="modal" data-target="#@item.Id">Details</button>
+                            <div class="move-buttons">
+                                @if (item.StoryPointsValue != 0 && item.whoIsWorkingOn != null)
+                                {
+                                    <a asp-area="" asp-controller="SprintTask" asp-action="SetAsDone" asp-route-id="@item.Id" class="move-right" title="Set as Done">
+                                        <i class="fas fa-check-circle"></i>
+                                    </a>
+                                }
+
+                                @* ToDO add action in controller*@
+                                @if (User.IsInRole("Developer") && item.whoIsWorkingOn == null)
+                                {
+                                    <a asp-area="" asp-controller="SprintTask" asp-action="SetAsCurrentlyWorkingOn" asp-route-id="@item.Id" class="move-right" title="Click if you will work on this">
+                                        <i class="fas fa-hand-paper"></i>
+                                    </a>
+                                }
+
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="@item.Id" role="dialog">
+                                @await Html.PartialAsync("_taskDetailsModal", item)
+                            </div>
+
+                        </div>
                     }
 
-                    @if (item.whoIsWorkingOn != null)
-                    {
-                        <p>
-                            DEV: @item.whoIsWorkingOn
-                        </p>
-                    }
-                    <button type="button" class="btn-action" data-toggle="modal" data-target="#@item.Id">Details</button>
-                    <div class="move-buttons">
-                        @if (item.StoryPointsValue != 0)
-	                    {
-                        <a asp-area="" asp-controller="SprintTask" asp-action="SetAsDone" asp-route-id="@item.Id" class="move-right" title="Set as Done">
-                            <i class="fas fa-check-circle"></i>
-                        </a>
-	                    }
-                        
-                        @* ToDO add action in controller*@
-                        @if (User.IsInRole("Developer"))
-                        {
-                            <a asp-area="" asp-controller="SprintTask" asp-action="SetAsCurrentlyWorkingOn" asp-route-id="@item.Id" class="move-right" title="Click if you will work on this">
-                                <i class="fas fa-hand-paper"></i>
-                            </a>
-                        }
+                }
 
+                @if (User.IsInRole("Developer") 
+                    && Model.TaskList.Any(x=>x.StoryPointsValue==0 
+                    && x.isInCurrentSprint==true))
+                {
+                    <div class="col-md-12">
+                        <button type="button" class="btn-view btn-view-large margin-auto" data-toggle="modal" data-target="#addStoryPointsValueModal">Add Story Points Value</button>
+                        @await Html.PartialAsync("_addStoryPointsValueModal", Model.StoryPointsValueToAdd)
                     </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="@item.Id" role="dialog">
-                        @await Html.PartialAsync("_taskDetailsModal", item)
-                    </div>
-
-                </div>
-                    }
-
                 }
             </div>
             <div class="col-md-3 wall-col">

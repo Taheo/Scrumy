@@ -24,5 +24,10 @@ namespace Scrumy.Services
         {
             return _context.SprintTasks.Where(x => x.isDone == true).ToList();
         }
+
+        public List<SprintTask> GetTasksInCurrentSprintWithoutSPValue()
+        {
+            return _context.SprintTasks.Where(x => x.isInCurrentSprint == true && x.StoryPointsValue == 0).ToList();
+        }
     }
 }

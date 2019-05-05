@@ -10,5 +10,6 @@ namespace Scrumy.Models.MixedVM
     {
         public List<SprintTask> TaskList { get; set; }
         public SprintTaskAddVM TaskToCreate { get; set; }
+        public SprintTaskAddStoryPointsVM StoryPointsValueToAdd { get; set; }
     }
 }

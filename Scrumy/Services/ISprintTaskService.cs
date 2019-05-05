@@ -10,6 +10,7 @@ namespace Scrumy.Services
     {
         List<SprintTask> GetAll();
         List<SprintTask> GetDoneTasks();
+        List<SprintTask> GetTasksInCurrentSprintWithoutSPValue();
         //SprintTask GetSprintTaskByID(Guid id);
         //void Create(SprintTask sprinttask);
         //void Delete(Guid id);
