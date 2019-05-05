@@ -20,7 +20,8 @@
       "wwwroot/css/createtaskmanager.css",
       "wwwroot/css/sprintStats.css",
       "wwwroot/css/statsMenu.css",
-      "wwwroot/css/retrospective.css"
+      "wwwroot/css/retrospective.css",
+      "wwwroot/css/sprintPlanning.css"
     ]
   },
   {

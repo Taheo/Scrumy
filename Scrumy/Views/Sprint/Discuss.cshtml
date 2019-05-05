@@ -1,11 +1,14 @@
 ﻿@model Scrumy.Models.SprintVM.SprintPlanVM
 
-<div class="sprintPlanning container">
+<section class="sprintPlanning container">
     <h2>Sprint Planning</h2>
     <h3>Discuss tasks below with Team</h3>
+    <p>
+        You have to choose which tasks should be set as ToDo in next Sprint. This part of Scrum is very important. Remember that you have to plan <strong>full</strong> Sprint now.
+    </p>
     <div class="row">
         <div class="col-md-6">
-            <h3>To discuss</h3>
+            <h4>To discuss</h4>
             @foreach (var item in Model.TasksToDiscuss)
             {
                 if (item.willBeInNextSprint == true)
@@ -26,13 +29,10 @@
 
 
                 }
-                @*<a asp-area="" asp-controller="Sprint" asp-action="SetAsToDoInCurrentSprint" asp-route-id="@item.Id" class="move-right" title="Set as ToDo in next Sprint">
-                        <i class="fas fa-arrow-circle-right"></i>
-                    </a>*@
             }
         </div>
         <div class="col-md-6">
-            <h3>Will be in Sprint</h3>
+            <h4>Will be in Sprint</h4>
             @foreach (var item in Model.TasksToDiscuss)
             {
                 if (item.isInCurrentSprint == true)
@@ -53,12 +53,6 @@
                 <div class="modal fade" id="@item.Id" role="dialog">
                     @await Html.PartialAsync("_taskDetailsModal", item)
                 </div>
-
-                @*<button type="button" class="btn-action" data-toggle="modal" data-target="#addStoryPointsValueModal">Add SP Value</button>
-                @await Html.PartialAsync("_addStoryPointsValueModal", item, new ViewDataDictionary(ViewData)
-                                 {
-                                     { "sprinttaskid", item.Id }
-                                 })*@
             </div>
                 }
             }
@@ -67,23 +61,25 @@
     @if (User.IsInRole("Product Owner"))
     {
         <div class="row">
-            @using (@Html.BeginForm("GenerateSprint", "Sprint", null, FormMethod.Post))
-            {
-                @Html.AntiForgeryToken()
+            <div class="col-md-6 col-md-offset-3">
+                @using (@Html.BeginForm("GenerateSprint", "Sprint", null, FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
 
-                <form asp-action="GenerateSprint">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="SprintToCreate.SprintTarget" class="control-label"></label>
-                        <input asp-for="SprintToCreate.SprintTarget" class="form-control" />
-                        <span asp-validation-for="SprintToCreate.SprintTarget" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Generate Sprint" class="btn btn-default" />
-                    </div>
-                </form>
-
-            }
+                    <form asp-action="GenerateSprint">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="SprintToCreate.SprintTarget" class="control-label"></label>
+                            <input asp-for="SprintToCreate.SprintTarget" class="form-control" required />
+                            <span asp-validation-for="SprintToCreate.SprintTarget" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Generate Sprint" class="btn-modal-submit" />
+                        </div>
+                    </form>
+                }
+            </div>
+            
         </div>
     }
-</div>
+</section>
