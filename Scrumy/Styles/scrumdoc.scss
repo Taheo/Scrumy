@@ -40,11 +40,32 @@
 
 .note-container, 
 .link-container {
-    border-bottom: 1px solid $borderGray;
+    border-bottom: 1px solid $navFootColor;
     height: 30px;
     line-height:30px;
-    
+    font-size: 1em;
 }
+
+.link-container {
+    a {
+        font-size: inherit !important;
+    }
+
+    &:last-of-type {
+        margin-bottom: 1em;
+    }
+}
+
+.note-container {
+    p {
+        font-size: inherit !important;
+        margin-bottom:0;
+    }
+    &:last-of-type{
+        margin-bottom:1em;
+    }
+}
+
 /* Slideshow container */
 .slideshow-container {
     max-width: 1000px;

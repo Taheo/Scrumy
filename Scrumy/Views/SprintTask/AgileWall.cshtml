@@ -120,7 +120,6 @@
                                     </a>
                                 }
 
-                                @* ToDO add action in controller*@
                                 @if (User.IsInRole("Developer") && item.whoIsWorkingOn == null)
                                 {
                                     <a asp-area="" asp-controller="SprintTask" asp-action="SetAsCurrentlyWorkingOn" asp-route-id="@item.Id" class="move-right" title="Click if you will work on this">
@@ -129,7 +128,7 @@
                                 }
 
                             </div>
-                            <!-- Modal -->
+
                             <div class="modal fade" id="@item.Id" role="dialog">
                                 @await Html.PartialAsync("_taskDetailsModal", item)
                             </div>

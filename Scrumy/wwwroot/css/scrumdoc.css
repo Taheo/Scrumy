@@ -31,9 +31,23 @@ $presentationBody:;*/
 
 .note-container,
 .link-container {
-  border-bottom: 1px solid #666666;
+  border-bottom: 1px solid #ececec;
   height: 30px;
-  line-height: 30px; }
+  line-height: 30px;
+  font-size: 1em; }
+
+.link-container a {
+  font-size: inherit !important; }
+
+.link-container:last-of-type {
+  margin-bottom: 1em; }
+
+.note-container p {
+  font-size: inherit !important;
+  margin-bottom: 0; }
+
+.note-container:last-of-type {
+  margin-bottom: 1em; }
 
 /* Slideshow container */
 .slideshow-container {

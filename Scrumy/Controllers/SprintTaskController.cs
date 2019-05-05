@@ -17,11 +17,13 @@ namespace Scrumy.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly ISprintTaskService _sprintTaskService;
+        private readonly ISprintService _sprintService;
 
-        public SprintTaskController(ApplicationDbContext context, ISprintTaskService sprintTaskService)
+        public SprintTaskController(ApplicationDbContext context, ISprintTaskService sprintTaskService,ISprintService sprintService)
         {
             _context = context;
             _sprintTaskService = sprintTaskService;
+            _sprintService = sprintService;
         }
         // GET: SprintTask
         public ActionResult Index()
@@ -41,6 +43,11 @@ namespace Scrumy.Controllers
             else
             {
                 ClearToDoInCurrentSprintIfSprintNotExist();
+
+                if (_sprintService.GetCurrentSprint() != null)
+                {
+                    CheckIfSprintIsDone();
+                }
 
                 var ListItemsFromTasks = new List<SelectListItem>();
                 var TasksList = _sprintTaskService.GetTasksInCurrentSprintWithoutSPValue();
@@ -77,6 +84,21 @@ namespace Scrumy.Controllers
                 _context.SprintTasks.Update(item);
             }
             _context.SaveChanges();
+        }
+
+        public void CheckIfSprintIsDone()
+        {
+            var currentSprint = _sprintService.GetCurrentSprint();
+            var currentSprintTasks = _sprintTaskService.GetAll().Where(x => x.SprintId == currentSprint.Id);
+
+            if (currentSprintTasks.All(z => z.isDone == true) == true)
+            {
+                currentSprint.isDone = true;
+
+                _context.Sprints.Update(currentSprint);
+                _context.SaveChanges();
+            }
+            //jeszcze nie wywoływane
         }
 
         public ActionResult Stats()
