@@ -182,6 +182,7 @@ namespace Scrumy.Controllers
             st.willBeInNextSprint = true;
             st.SprintId = Guid.Empty;
             st.StoryPointsValue = 0;
+            st.whoIsWorkingOn = "";
 
             _context.SprintTasks.Update(st);
             _context.SaveChanges();

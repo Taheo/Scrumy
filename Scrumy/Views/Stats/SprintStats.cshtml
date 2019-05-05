@@ -3,33 +3,37 @@
 <section class="container sprintStats">
     <h2>Sprints Statistics</h2>
     <div class="row">
-        
-            <h3>Current Sprint</h3>
-            @foreach (var item in Model.Sprints)
-            {
-                if (item.isDone == false)
-                {
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Panel Heading</div>
-                        <div class="panel-body">
-                            <p>Sprint Target: @item.SprintTarget</p>
-                            <div class="sprint-tasks-list">
-                                @foreach (var task in Model.Tasks)
-                                {
-                                    if (task.SprintId == item.Id)
-                                    {
-                                        <div class="sprint-tasks-list-element">
-                                            <p>@task.Title</p>
-                                            <p>@task.Desc</p>
-                                        </div>
-                                    }
-                                }
-                            </div>
-                        </div>
+
+        <h3>Current Sprint</h3>
+        @if (Model.Sprints.Count() == 0)
+        {
+            <div class="alert alert-info">
+                <strong>There is no active Sprint</strong> Time to plan some new Sprint!
+            </div>
+        }
+        @foreach (var item in Model.Sprints.Where(x => x.isDone == false))
+        {
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Panel Heading</div>
+                <div class="panel-body">
+                    <p>Sprint Target: @item.SprintTarget</p>
+                    <div class="sprint-tasks-list">
+                        @foreach (var task in Model.Tasks)
+                        {
+                            if (task.SprintId == item.Id)
+                            {
+                                <div class="sprint-tasks-list-element">
+                                    <p>@task.Title</p>
+                                    <p>@task.Desc</p>
+                                </div>
+                            }
+                        }
                     </div>
-                }
-            }
-       
+                </div>
+            </div>
+        }
+
     </div>
     <div class="col-md-12">
         <a asp-area="" asp-controller="Stats" asp-action="StatsMenu" class="btn-view">Stats Menu</a>
