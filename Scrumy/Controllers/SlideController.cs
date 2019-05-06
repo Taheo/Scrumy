@@ -137,5 +137,18 @@ namespace Scrumy.Controllers
                 return View();
             }
         }
+
+        public ActionResult EditSlide(EditSlideVM model)
+        {
+            var slide = _context.Slides.Find(model.SlideId);
+
+            slide.Content = model.Content;
+            slide.Number = model.Number;
+
+            _context.Slides.Update(slide);
+            _context.SaveChanges();
+
+            return RedirectToAction("ScrumDocEXT", "Account");
+        }
     }
 }

@@ -14,6 +14,8 @@ using Scrumy.Data;
 using Scrumy.Models;
 using Scrumy.Models.AccountViewModels;
 using Scrumy.Models.MixedVM;
+using Scrumy.Models.SlidesViewModel;
+using Scrumy.Models.TeachingMaterialsVM;
 using Scrumy.Services;
 
 namespace Scrumy.Controllers
@@ -133,13 +135,33 @@ namespace Scrumy.Controllers
 
         public async Task<IActionResult> ScrumDocEXT()
         {
-            var slides = _context.Slides;
-            var techMat = _context.TeachingMaterials;
+            var slides = _context.Slides.ToList();
+            var techMat = _context.TeachingMaterials.ToList();
+
+            var TeachMatsSelect = new List<SelectListItem>();
+            var SlidesSelect = new List<SelectListItem>();
+
+
+            foreach (var item in techMat)
+            {
+                TeachMatsSelect.Add(new SelectListItem { Text = item.Link.ToString(), Value = item.Id.ToString() });
+            }
+
+            foreach (var item in slides)
+            {
+                SlidesSelect.Add(new SelectListItem { Text = item.Number.ToString(), Value = item.Id.ToString() });
+            }
 
             var model = new SlidesTechMat
             {
-                SlideSet = slides.ToList(),
-                TechMatSet = techMat.ToList()
+                SlideSet = slides,
+                TechMatSet = techMat,
+                TeachMatToEdit = new EditTeachingMaterialVM {
+                    TeachingMaterialsToSelect = TeachMatsSelect
+                },
+                SlideToEdit = new EditSlideVM {
+                     SlidesToSelect = SlidesSelect
+                }
             };
 
             return View(model);

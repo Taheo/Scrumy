@@ -111,5 +111,18 @@ namespace Scrumy.Controllers
                 return View();
             }
         }
+
+        public ActionResult EditTeachingMaterial(EditTeachingMaterialVM model)
+        {
+            var teachMat = _context.TeachingMaterials.Find(model.TeachingMaterialId);
+
+            teachMat.Link = model.Link;
+            teachMat.Note = model.Note;
+
+            _context.TeachingMaterials.Update(teachMat);
+            _context.SaveChanges();
+
+            return RedirectToAction("ScrumDocEXT", "Account");
+        }
     }
 }

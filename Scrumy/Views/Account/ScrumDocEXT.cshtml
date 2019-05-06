@@ -123,6 +123,13 @@
                         @await Html.PartialAsync("_addTeachingMaterialModal", Model.TeachingMaterial)
                         <button class="btn-action margin-auto" type="button" data-toggle="modal" data-target="#addSlideModal">Add Slide</button>
                         @await Html.PartialAsync("_addSlideModal", Model.Slide)
+
+
+                        <button class="btn-action margin-auto" type="button" data-toggle="modal" data-target="#editTeachingMaterialModal">Edit Teaching Material</button>
+                        @await Html.PartialAsync("_editTeachingMaterialModal", Model.TeachMatToEdit)
+
+                        <button class="btn-action margin-auto" type="button" data-toggle="modal" data-target="#editSlideModal">Edit Slide</button>
+                        @await Html.PartialAsync("_editSlideModal", Model.SlideToEdit)
                     </div>
                     <div class="col-md-6 col-sm-12">
                     </div>

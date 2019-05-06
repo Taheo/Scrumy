@@ -1,0 +1,37 @@
+﻿@model Scrumy.Models.TeachingMaterialsVM.EditTeachingMaterialVM
+
+<div class="modal fade" id="editTeachingMaterialModal" role="dialog">
+    <div class="modal-dialog">
+        @using (@Html.BeginForm("EditTeachingMaterial", "TeachingMaterial", null, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Teaching Material</h4>
+                </div>
+                <div class="modal-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Link" class="control-label"></label>
+                        <input asp-for="Link" class="form-control" required value="" />
+                        <span asp-validation-for="Link" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Note" class="control-label"></label>
+                        <input asp-for="Note" class="form-control" required value="" />
+                        <span asp-validation-for="Note" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TeachingMaterialId" class="control-label"></label>
+                        <select asp-for="TeachingMaterialId" asp-items="Model.TeachingMaterialsToSelect" class="form-control"></select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-modal-submit" type="submit" name="button">Update</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
